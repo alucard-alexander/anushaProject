@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration</title>
 <link rel="stylesheet" href="css/InputBox.css">
 
 <!-- start -->
@@ -76,7 +76,7 @@
 	<div class="row">
 	
 		<div class="col" >
-			<div style="margin: 10px 30%  20px">
+			<div style="margin: 10px 30%  20px"> 
 				<input  type="submit" value="Register" class="btn btn-success">
 			</div>
 		</div>
