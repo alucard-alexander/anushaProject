@@ -22,6 +22,7 @@ public class ViewDAO {
 				i.setItemName(gc.rs1.getString(2));
 				i.setPrice(gc.rs1.getFloat(3));
 				i.setType(gc.rs1.getString(4));
+				
 				itemsList.add(i);
 			}
 			
