@@ -16,25 +16,23 @@
 			try {
 				for (Items i : new ViewDAO().getUserItems()) {
 		%>
-
-
-
 		<div class="box">
-			<img src="itemsimages/<%=i.getId()%>.jpg" class="imag1">
+			<div class="imgBox">
+				<img src="itemsimages/<%=i.getId()%>.jpg">
+			</div>
 			<div class="details">
+				<h4>
 					<%=i.getType()%><br>
 					<%=i.getItemName()%><br>
 					<%=i.getPrice()%><br>
-					<form action="" name="frm<%=i.getId()%>">
-						<input type="button" value="input">
-					</form>
+				</h4>
+				<form action="" name="frm<%=i.getId()%>">
+					<input type="button" value="input">
+				</form>
 			</div>
 		</div>
-
-
 		<%
 			}
-
 			} catch (Exception e) {
 
 			}
