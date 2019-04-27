@@ -1,7 +1,13 @@
 package com.anu.bean;
 
 public class Items {
-	String itemName,type;
+	String itemName,type,wieght;
+	public String getWieght() {
+		return wieght;
+	}
+	public void setWieght(String wieght) {
+		this.wieght = wieght;
+	}
 	int id;
 	public String getItemName() {
 		return itemName;

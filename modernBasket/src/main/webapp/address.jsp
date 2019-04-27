@@ -78,7 +78,7 @@
 		</div>
 					<input type="hidden" name="fname" value=<%=request.getParameter("fname")%>>
 					<input type="hidden" name="mname" value=<%=request.getParameter("mname") %>>
-					<input type="hidden" name="lname" value=<%=request.getParameter("lname") %>>
+					<input type="hidden" name="lname" value=<%=request.getParameter("lname")%>>
 					<input type="hidden" name="dob" value=<%=request.getParameter("dob") %>>
 					<input type="hidden" name="uname" value=<%=request.getParameter("uname") %>>
 					<input type="hidden" name="pass" value=<%=request.getParameter("pass") %>>
