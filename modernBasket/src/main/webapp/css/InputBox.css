@@ -7,8 +7,9 @@
 	margin: 10px 20px 10px 30%;
 	outline: none;
 	padding: 8px;
-	box-sizing: border-box;
+	
 }
+
 
 .centered {
 	top: 50%;
@@ -42,3 +43,27 @@
 	border-color: dodgerBlue;
 	box-shadow: 0 0 8px 0 dodgerBlue
 }
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.input2{
+	width: 30rem;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	outline: none;
+	padding: 8px;
+}
+
+.input2:hover{
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 dodgerBlue
+}
+
+.myText{
+	font-size: 50px;
+	text-shadow: 0 0 5px white;
+	border-radius: 4px;
+	
+}
+
+
