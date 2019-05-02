@@ -47,11 +47,13 @@
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .input2{
+	
 	width: 30rem;
 	border: 2px solid #aaa;
 	border-radius: 4px;
 	outline: none;
 	padding: 8px;
+	
 }
 
 .input2:hover{

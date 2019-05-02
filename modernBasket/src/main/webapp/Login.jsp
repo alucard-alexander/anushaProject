@@ -10,21 +10,32 @@
 
 <style type="text/css">
 .pos {
+	position: absolute; top : 30%;
+	left: 30%; 
+	max-width: 100%;
+	max-height: 100%;
+	width: 50%;
+	height: auto;
 	top: 30%;
-	left: 50%;
-	position: absolute;
-	max-width: 80%;
-	max-height: 80%;
-	width: 40%;
+	justify-content: center;
+	display: grid;
+	place-items: center;
+	/*display: flex;
+	align-items: center;
+	justify-content: center;*/
+	
 }
 
-.container {
-	padding: 5%;
+ .pos .but{
+ 	width: 100%;
+ 	position: relative;
+ 	height: auto;
+	background-color: white;
+	justify-content: space-between ;
+	margin: auto;
+	
 }
 
-#contents{
-margin: 5%;
-}
 </style>
 
 </head>
@@ -49,10 +60,11 @@ margin: 5%;
 	</header>
 	<form>
 		<div class="pos">
-			<div class="container">
-				<div class="myText"	id="contents">Login</div>
-				<input type="text" class="input2" name="uname" id="contents">
-				<input type="password" class="input2" id="contents">
+			<div class="myText">Login</div><br>
+			<input type="text" class="input2" name="uname"><br> 
+			<input type="password" class="input2"><br>
+			<div class="but">
+				<input type="submit"> <input type="reset">
 			</div>
 		</div>
 
