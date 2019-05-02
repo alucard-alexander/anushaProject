@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<header>
+	<header style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)), url('systemImages/HeaderBg.jpg') center no-repeat; background-size: cover ">
 		<div class="container">
 			<nav>
 				<h1 class="brand">
@@ -20,7 +20,7 @@
 				</h1>
 				<ul>
 					<li>
-						<a href="">Log in</a>
+						<a href="Login">Log in</a>
 					</li>
 					<li>
 						<a href="">Register</a>
