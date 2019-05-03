@@ -43,30 +43,7 @@
 	background-color: yellow;
 }
 
-/* .pos {
-	position: absolute; top : 30%;
-	left: 30%; 
-	max-width: 100%;
-	max-height: 100%;
-	height: auto;
-	top: 30%;
-	justify-content: center;
-	display: grid;
-	place-items: center;
-	background-color: white;
-}
 
- .but{
- 	max-width:100%;
- 	width: 50px;
- 	position: relative;
- 	height: 50px;;
-	background-color: white;
-	padding: 5%;
-	margin: 5%;
-	justify-content: space-between ;
-}
- */
 </style>
 
 </head>
@@ -80,7 +57,7 @@
 					</a>
 				</h1>
 				<ul>
-					<li><a href="Login">Log in</a></li>
+					<li><a href="Login.jsp">Log in</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>
 					<li><a href="ItemsUser.jsp">Items List</a></li>
 					<li><a href="">About Us</a></li>

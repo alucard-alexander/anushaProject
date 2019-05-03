@@ -20,7 +20,7 @@
 				</h1>
 				<ul>
 					<li>
-						<a href="Login">Log in</a>
+						<a href="Login.jsp">Log in</a>
 					</li>
 					<li>
 						<a href="UserRegistration.jsp">Register</a>

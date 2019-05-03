@@ -19,19 +19,19 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
- 
+
 		String strName = request.getParameter("uname");
 		String strPass = request.getParameter("pass");
 
 		ViewDAO v1 = new ViewDAO();
 		String strPass1 = v1.getPass(strName);
 
-		
-		 if (!(strPass1 == strPass)) 
-		 { 
-			 response.sendRedirect("Success.jsp"); 
-		 }
-		
+		if (strPass.equals(strPass1)) {
+			System.out.println(strPass+ " " + strPass1);
+			response.sendRedirect("UserHomePage.jsp");
+		}else {
+			response.sendRedirect("Error.jsp");
+		}
 
 	}
 
