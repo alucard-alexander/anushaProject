@@ -46,7 +46,7 @@ public class userRegistration extends HttpServlet {
 			// p.setPh_no(Integer.parseInt(request.getParameter("phno")));
 			// System.out.println(Integer.parseInt(request.getParameter("phno")));
 			p.setPh_no(request.getParameter("phno").toString());
-			System.out.println("here");
+			
 			int k = i.insertPerson(p, j);
 			if (k > 0) {
 				HttpSession session = request.getSession();

@@ -23,6 +23,8 @@ public class userQuestion extends HttpServlet {
 		s.setQuestion_answer(request.getParameter("question"));
 		Insert i = new Insert();
 		if (i.insertQuestion(s)) {
+			session.removeAttribute("id");
+			session.invalidate();
 			response.sendRedirect("Login.jsp");
 		}
 	}
