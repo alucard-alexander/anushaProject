@@ -64,7 +64,7 @@
 					<li><a href="">Contact Us</a></li>
 				</ul>
 			</nav>
-		</div>
+		</div> 
 	</header>
 	<form action="Login.do" method="post">
 		<div class="myContainer1">

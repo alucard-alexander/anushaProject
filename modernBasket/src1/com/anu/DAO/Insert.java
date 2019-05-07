@@ -9,6 +9,21 @@ import com.anu.bean.Person;
 import com.anu.bean.security_questions;
 
 public class Insert {
+	
+	public boolean insertUserOrder(int id) {
+		String sql = "insert into order1(pid,item_id,Quantity,Total_price) values(?,?,?,?)";
+		GetConnection gc = new GetConnection();
+		
+		try {
+			gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return false;
+	}
 
 	public int insertAddress(Address a) {
 		String sql = "insert into address(Door_No,Area,State,Landmark,Pincode,Street,City) values(?,?,?,?,?,?,?)";

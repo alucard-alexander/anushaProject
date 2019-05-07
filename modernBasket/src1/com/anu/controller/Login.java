@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.anu.DAO.ViewDAO;
 
@@ -20,14 +21,15 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String strName = request.getParameter("uname");
-		String strPass = request.getParameter("pass");
+
 
 		ViewDAO v1 = new ViewDAO();
-		String strPass1 = v1.getPass(strName);
+		String[] strPass1 = v1.getPass(request.getParameter("uname"));
 
-		if (strPass.equals(strPass1)) {
-			System.out.println(strPass+ " " + strPass1);
+		if (request.getParameter("pass").equals(strPass1[0])) {
+			//System.out.println(strPass+ " " + strPass1);
+			HttpSession session = request.getSession();
+			session.setAttribute("id", Integer.parseInt(strPass1[1]));
 			response.sendRedirect("UserHomePage.jsp");
 		}else {
 			response.sendRedirect("Error.jsp");

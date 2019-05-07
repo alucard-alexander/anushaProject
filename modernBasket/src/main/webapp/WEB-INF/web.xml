@@ -34,6 +34,12 @@
   	<description></description>
   	<servlet-class>com.anu.controller.Login</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Order</servlet-name>
+  	<display-name>Order</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.Order</servlet-class>
+  </servlet>
   
   
   
@@ -52,6 +58,10 @@
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Order</servlet-name>
+  	<url-pattern>/Order.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

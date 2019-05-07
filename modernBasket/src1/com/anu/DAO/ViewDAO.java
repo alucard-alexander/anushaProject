@@ -9,18 +9,19 @@ import com.anu.bean.Items;
 public class ViewDAO {
 
 	
-	public String getPass(String uname) {
-		String sql = "select password from person where User_Name=?";
+	public String[] getPass(String uname) {
+		String sql = "select password,id from person where User_Name=?";
 		GetConnection gc = new GetConnection();
-		
+		String[] pass = new String[2];
 		
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setString(1,uname);
 			gc.rs1 = gc.ps.executeQuery();
 			while (gc.rs1.next()) {
-				
-				return gc.rs1.getString(1);
+				pass[0]=gc.rs1.getString(1);
+				pass[1]=gc.rs1.getString(2);
+				return pass;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -28,7 +29,7 @@ public class ViewDAO {
 		}
 		
 		
-		return " ";
+		return null;
 	}
 	
 	public List<Items> getUserItems(){
