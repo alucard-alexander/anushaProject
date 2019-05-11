@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `modern_basket` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `modern_basket`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: modern_basket
@@ -32,7 +34,7 @@ CREATE TABLE `address` (
   `Street` varchar(45) NOT NULL,
   `City` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +43,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'#89','kurubarahalli','karnataka','kavery factory',560086,'12th main road','bangalore'),(2,'#90','sanjaynagar','karnataka','craxy aunty',560086,'11th main road','bangalore');
+INSERT INTO `address` VALUES (3,'#90','Sanjay Nagar','Karnataka','Aunty mane',560094,'1st cross','Bangalore');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,6 +125,36 @@ INSERT INTO `items` VALUES (1,'brinjal',59.90000,'Packet','100'),(2,'Amaranth',6
 UNLOCK TABLES;
 
 --
+-- Table structure for table `order1`
+--
+
+DROP TABLE IF EXISTS `order1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `order1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Total_Price` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order_personId_idx` (`pid`),
+  KEY `order_itemid_idx` (`item_id`),
+  CONSTRAINT `order_itemid` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`),
+  CONSTRAINT `order_personId` FOREIGN KEY (`pid`) REFERENCES `person` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order1`
+--
+
+LOCK TABLES `order1` WRITE;
+/*!40000 ALTER TABLE `order1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `person`
 --
 
@@ -145,7 +177,7 @@ CREATE TABLE `person` (
   UNIQUE KEY `User_Name_UNIQUE` (`User_Name`),
   KEY `address_id_idx` (`address_id`),
   CONSTRAINT `address_id` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +186,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,2,'anusha','jaadav','jagathap','1997-01-18','male','anusha','anu123','45454545','anushajaadav@gmail.com');
+INSERT INTO `person` VALUES (2,3,'Anusha','bai','N','1997-01-18','male','anusha','anu123','9898989898','anushajaadav@gmail.com');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +212,7 @@ CREATE TABLE `security_questions` (
 
 LOCK TABLES `security_questions` WRITE;
 /*!40000 ALTER TABLE `security_questions` DISABLE KEYS */;
-INSERT INTO `security_questions` VALUES ('Enter the Name of your Best teacher?','ajitha',1);
+INSERT INTO `security_questions` VALUES ('Enter the Name of your Best teacher?','Ajitha',2);
 /*!40000 ALTER TABLE `security_questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03  0:49:44
+-- Dump completed on 2019-05-07 10:39:45
