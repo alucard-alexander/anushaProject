@@ -24,6 +24,28 @@ function order(id,name){
 
 </head>
 <body>
+	<% if(session.getAttribute("id") != null){
+	%>
+		<header
+		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
+		<div class="container1">
+			<nav>
+				<h1 class="brand">
+					<a href="Index.jsp">Modern <span>B</span>asket
+					</a>
+				</h1>
+				<ul>
+					<li><a href="UserOrderedList.jsp">Order List</a></li> 
+					<li><a href="">About Us</a></li>
+					<li><a href="">Contact Us</a></li>
+					<li><a href="Logout.do">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<%
+	}else{
+	%>
 	<header
 		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
 		<div class="container1">
@@ -35,13 +57,16 @@ function order(id,name){
 				<ul>
 					<li><a href="Login.jsp">Log in</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>
-					<li><a href="ItemsUser.jsp">Items List</a></li> 
+					<li><a href="ItemsUser.jsp">Items List</a></li>
 					<li><a href="">About Us</a></li>
 					<li><a href="">Contact Us</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
+	
+	<%} %>
+	
 	<div class="container"
 		style="top: 20%; left: 100px; right: 100px; position: absolute;">
 		<%

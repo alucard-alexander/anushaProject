@@ -3,25 +3,34 @@ package com.anu.DAO;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.catalina.tribes.group.Response;
+
 import com.anu.GetConnection.GetConnection;
 import com.anu.bean.Address;
+import com.anu.bean.Order;
 import com.anu.bean.Person;
 import com.anu.bean.security_questions;
 
 public class Insert {
 	
-	public boolean insertUserOrder(int id) {
+	public boolean insertUserOrder(Order o1) {
 		String sql = "insert into order1(pid,item_id,Quantity,Total_price) values(?,?,?,?)";
 		GetConnection gc = new GetConnection();
 		
 		try {
 			gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			gc.ps.setInt(1,o1.getPid());
+			gc.ps.setInt(2,o1.getItem_id());
+			gc.ps.setInt(3, o1.getQuantity());
+			gc.ps.setFloat(4, o1.getTotal_price());
+			gc.ps.executeUpdate();
+			gc.rs1 = gc.ps.getGeneratedKeys();
+			if (gc.rs1.next()) {
+				return true;
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
-		
-		
 		return false;
 	}
 
@@ -30,7 +39,6 @@ public class Insert {
 		GetConnection gc = new GetConnection();
 
 		try {
-
 			gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
 			gc.ps.setString(1, a.getDoor_no());
@@ -43,7 +51,7 @@ public class Insert {
 			gc.ps.executeUpdate();
 			gc.rs1 = gc.ps.getGeneratedKeys();
 			if (gc.rs1 != null && gc.rs1.next()) {
-				System.out.println("Generated Emp Id: " + gc.rs1.getInt(1));
+				//System.out.println("Generated Emp Id: " + gc.rs1.getInt(1));
 				return (gc.rs1.getInt(1));
 			}
 		} catch (Exception e) {
