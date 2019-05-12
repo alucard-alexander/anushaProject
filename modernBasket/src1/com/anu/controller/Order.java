@@ -27,7 +27,7 @@ public class Order extends HttpServlet {
 		o1.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 		o1.setTotal_price(price*(Integer.parseInt(request.getParameter("quantity"))));
 		if (new Insert().insertUserOrder(o1)) {
-			response.sendRedirect("UserOrderList.jsp");
+			response.sendRedirect("UserOrderedList.jsp");
 		}else {
 			response.sendRedirect("Error.jsp");
 		}

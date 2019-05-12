@@ -14,11 +14,14 @@
 <script type="text/javascript">
 function order(id,name){
 	
-	console.log(name);
+	/* console.log(name);
 	x=prompt("Enter the quantity of elements "+ name);
 	formname='frm'+id; 
 	document.forms[formname].action='Order.do?quantity='+x;
-	document.forms[formname].submit(); 
+	document.forms[formname].submit();  */
+	formname='frm'+id; 
+	document.forms[formname].action='Calculation.jsp';
+	document.forms[formname].submit();
 }
 </script>
 

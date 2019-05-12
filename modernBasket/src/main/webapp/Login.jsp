@@ -73,7 +73,7 @@
 			<input type="text" class="input2" name="uname"><br>
 			<input type="password" class="input2" name="pass"><br>
 			<div class="myContainer2">
-				<input type="submit" class="but1 input2" Value="Login In"> 
+				<input type="submit" class="but1 input2" Value="Log In"> 
 				<input type="reset" class="but2 input2">
 			</div>
 		</div>
