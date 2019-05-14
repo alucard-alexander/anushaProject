@@ -3,7 +3,7 @@ package com.anu.bean;
 public class Order_Items {
 	int item_id,order_id,pid,quantity;
 	float price,total_price;
-	String items_name,type,weight;
+	String items_name,type,weight,status;
 	public int getItem_id() {
 		return item_id;
 	}
@@ -12,6 +12,12 @@ public class Order_Items {
 	}
 	public int getOrder_id() {
 		return order_id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;

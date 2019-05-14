@@ -14,7 +14,7 @@ import com.anu.bean.security_questions;
 public class Insert {
 	
 	public boolean insertUserOrder(Order o1) {
-		String sql = "insert into order1(pid,item_id,Quantity,Total_price) values(?,?,?,?)";
+		String sql = "insert into order1(pid,item_id,Quantity,Total_price,status) values(?,?,?,?,?)";
 		GetConnection gc = new GetConnection();
 		
 		try {
@@ -22,7 +22,8 @@ public class Insert {
 			gc.ps.setInt(1,o1.getPid());
 			gc.ps.setInt(2,o1.getItem_id());
 			gc.ps.setInt(3, o1.getQuantity());
-			gc.ps.setFloat(4, o1.getTotal_price());
+			gc.ps.setDouble(4, o1.getTotal_price());
+			gc.ps.setString(5, "Pending");
 			gc.ps.executeUpdate();
 			gc.rs1 = gc.ps.getGeneratedKeys();
 			if (gc.rs1.next()) {

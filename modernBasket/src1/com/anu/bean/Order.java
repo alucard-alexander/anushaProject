@@ -2,7 +2,15 @@ package com.anu.bean;
 
 public class Order {
 	int id,pid,item_id,quantity;
-	float Total_price;
+	Double Total_price;
+	String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -27,10 +35,10 @@ public class Order {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public float getTotal_price() {
+	public Double getTotal_price() {
 		return Total_price;
 	}
-	public void setTotal_price(float total_price) {
+	public void setTotal_price(Double total_price) {
 		Total_price = total_price;
 	}
 

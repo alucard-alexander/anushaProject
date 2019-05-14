@@ -1,6 +1,6 @@
 <%@page import="com.anu.DAO.ViewDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,20 +63,16 @@ label {
 		
 	}
 </script>
-
 </head>
 <body>
 
 	<%
 		if(session.getAttribute("id")==null){
 			response.sendRedirect("Login.jsp");
-			
 		}else{
-		int id=Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		//int id = 4;
+		int id=Integer.parseInt(request.getParameter("iid"));
+		
 	%>
-	
 	<header
 		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
 		<div class="container1">
@@ -94,15 +90,14 @@ label {
 			</nav>
 		</div>
 	</header>
-	
 	<%
 		String[] itemName = new ViewDAO().getitemName_Price(id);
-	
 	%>
-	<form name="frm" action="Order.do" method="post">
+	<form name="frm" action="UpdateOrder.do" method="post">
 	<%//request.setAttribute("id", Integer.toString(id)); 
 		//request.setAttribute("id", "4");
-		session.setAttribute("item_id", id);
+		session.setAttribute("oid", request.getParameter("oid"));
+		session.setAttribute("item_id", request.getParameter("iid"));
 	%>
 		<div class="cen">
 			<div class="con">

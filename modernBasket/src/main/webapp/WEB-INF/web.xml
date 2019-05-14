@@ -40,6 +40,18 @@
   	<description></description>
   	<servlet-class>com.anu.controller.Order</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateOrder</servlet-name>
+  	<display-name>UpdateOrder</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.UpdateOrder</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderCancel</servlet-name>
+  	<display-name>OrderCancel</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.OrderCancel</servlet-class>
+  </servlet>
   
   
   
@@ -62,6 +74,14 @@
   <servlet-mapping>
   	<servlet-name>Order</servlet-name>
   	<url-pattern>/Order.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateOrder</servlet-name>
+  	<url-pattern>/UpdateOrder.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderCancel</servlet-name>
+  	<url-pattern>/OrderCancel.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

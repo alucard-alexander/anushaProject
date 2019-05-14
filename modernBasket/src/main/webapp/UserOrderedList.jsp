@@ -28,7 +28,7 @@
 	border: 2px solid #EF5353
 }
 
-.can:hover{
+.can:hover {
 	/*background-color: green;*/
 	background-color: #EF5353;
 	color: black;
@@ -91,6 +91,22 @@ th:last-child {
 }
 </style>
 
+
+<script type="text/javascript">
+	function modify(id) {
+		formname='frm'+id; 
+		document.forms[formname].action='UserModifyOrder.jsp';
+		document.forms[formname].submit();
+	}
+	
+	function cancelOrder1(id){
+		formname='frm'+id; 
+		document.forms[formname].action='UserOrderCancelConfirm.jsp';
+		document.forms[formname].submit();
+	}
+</script>
+
+
 <body>
 	<%
 		if (session.getAttribute("id") == null) {
@@ -138,10 +154,18 @@ th:last-child {
 				<td>10%</td>
 				<td><%=o1.getTotal_price()%></td>
 
-				<td>Pending</td>
-
-				<td><input type="button" value="CANCEL" class="but can">
-				<input type="button" value="MODIFY" class="but mod"></td>
+				<td><%=o1.getStatus()%></td>
+				<form name="frm<%=o1.getOrder_id()%>">
+					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
+					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
+					<td><input type="button" value="CANCEL" class="but can" onclick="cancelOrder1(<%=o1.getOrder_id()%>)">
+						<%
+							if (!(o1.getStatus().equalsIgnoreCase("processing..."))) {
+						%> <input type="button" value="MODIFY" class="but mod"
+						onclick="modify(<%=o1.getOrder_id()%>)"> <%
+ 				}
+ 			%></td>
+				</form>
 			</tr>
 			<%
 				}

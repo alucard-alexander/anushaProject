@@ -59,7 +59,7 @@
 				<ul>
 					<li><a href="Login.jsp">Log in</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>
-					<li><a href="ItemsUser.jsp">Items List</a></li>
+					<li><a href="UserHomePage.jsp">Items List</a></li>
 					<li><a href="">About Us</a></li>
 					<li><a href="">Contact Us</a></li>
 				</ul>

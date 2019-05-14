@@ -1,6 +1,6 @@
 <%@page import="com.anu.DAO.ViewDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,32 +51,16 @@ label {
 </style>
 
 
-<script type="text/javascript">
-	function cal() {
-		var d=parseFloat(document.getElementById('pri').textContent);
-		var e=parseInt(document.getElementById('quantity').value);
-		var f=d*e;
-		f=(0.1*f)+f;
-		document.getElementById('tpr').innerText= f;
-		document.getElementById('sub').focus;
-		
-		
-	}
-</script>
-
 </head>
 <body>
 
 	<%
 		if(session.getAttribute("id")==null){
 			response.sendRedirect("Login.jsp");
-			
 		}else{
-		int id=Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		//int id = 4;
+		int id=Integer.parseInt(request.getParameter("iid"));
+		
 	%>
-	
 	<header
 		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
 		<div class="container1">
@@ -94,15 +78,13 @@ label {
 			</nav>
 		</div>
 	</header>
-	
 	<%
 		String[] itemName = new ViewDAO().getitemName_Price(id);
-	
+		Integer[] i=new ViewDAO().get_quantity_TotalPrice(Integer.parseInt(request.getParameter("oid")));
 	%>
-	<form name="frm" action="Order.do" method="post">
+	<form action="OrderCancel.do" method="post" name="frm">
 	<%//request.setAttribute("id", Integer.toString(id)); 
 		//request.setAttribute("id", "4");
-		session.setAttribute("item_id", id);
 	%>
 		<div class="cen">
 			<div class="con">
@@ -110,6 +92,7 @@ label {
 					<img src="itemsimages/<%=id%>.jpg">
 				</div>
 				<div class="details">
+			
 					<div>
 						<label><b>Item Name: </b></label> <label><%=itemName[0].substring(0, 1).toUpperCase() + itemName[0].substring(1)%></label>
 					</div>
@@ -117,19 +100,18 @@ label {
 						<label><b>Item Price: </b></label> <label id="pri"><%=itemName[1]%></label>
 					</div>
 					<div>
-						<label><b>Quantity:</b></label><input type="number" 
-							name="quantity" id="quantity" onblur="cal()">
+						<label><b>Quantity:</b></label><label><%=i[0]%></label>
 					</div>
 					<div>
 						<label style="margin-right: 30px;"><b>GST:</b></label><label>10%</label>
 					</div>
 					<div>
-						<label><b>Total Cost:</b></label><label id="tpr"></label>
+						<label><b>Total Cost:</b></label><label id="tpr"><%=i[1] %></label>
 					</div>
 					<div>
-						<input type="submit" value="Order" id="sub">
+						<input type="hidden" value=<%=request.getParameter("oid")%> name="oid">
+						<input type="submit" value="Confirm cancel" id="sub">
 					</div>
-					
 				</div>
 			</div>
 		</div>

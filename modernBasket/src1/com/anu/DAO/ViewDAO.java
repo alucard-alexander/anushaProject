@@ -11,6 +11,27 @@ import com.anu.bean.Order_Items;
 
 public class ViewDAO {
 	
+	
+	public Integer[] get_quantity_TotalPrice(int oid) {
+		String sql="select Quantity,Total_Price from order1 where id=?";
+		GetConnection gc = new GetConnection();
+		Integer[] i= new Integer[2];
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, oid);
+			gc.rs1 = gc.ps.executeQuery();
+			while (gc.rs1.next()) {
+				i[0]= gc.rs1.getInt(1);
+				i[1]= gc.rs1.getInt(2);
+				return i;
+			}		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public String[] getitemName_Price(int id) throws SQLException {
 		String sql="select items_name,price from items where id=?";
 		GetConnection gc = new GetConnection();
@@ -31,9 +52,7 @@ public class ViewDAO {
 		String sql = "select * from order1 where pid=?";
 		String sql1;
 		GetConnection gc = new GetConnection();
-
 		List<Order_Items> orderList = new ArrayList<Order_Items>();
-
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setInt(1, id);
@@ -43,13 +62,14 @@ public class ViewDAO {
 
 				Order_Items o1 = new Order_Items();
 				
-				
+				o1.setOrder_id(gc.rs1.getInt(1));
 				
 				o1.setPid(gc.rs1.getInt(2));
 
 				o1.setItem_id(gc.rs1.getInt(3));
 				o1.setQuantity(gc.rs1.getInt(4));
 				o1.setTotal_price(gc.rs1.getInt(5));
+				o1.setStatus(gc.rs1.getString(6));
 				sql1="select * from items where id=?";
 				gc.ps1 = gc.getMysqlConnection().prepareStatement(sql1);
 				gc.ps1.setInt(1, gc.rs1.getInt(3));
@@ -58,15 +78,7 @@ public class ViewDAO {
 					o1.setItems_name(gc.rs2.getString(2));
 					o1.setPrice(gc.rs2.getFloat(3));
 				}
-				
 				orderList.add(o1);
-
-				/*
-				 * System.out.println(gc.rs1.getInt(1)); System.out.println(gc.rs1.getInt(2));
-				 * System.out.println(gc.rs1.getInt(3)); System.out.println(gc.rs1.getInt(4));
-				 * System.out.println(gc.rs1.getInt(5));
-				 */
-
 			}
 			return orderList;
 		} catch (SQLException e) {
@@ -97,7 +109,7 @@ public class ViewDAO {
 		return null;
 	}
 
-	public float getPriceItem(Integer id) {
+	public Double getPriceItem(Integer id) {
 		String sql = "select price from items where id=?";
 		GetConnection gc = new GetConnection();
 		try {
@@ -105,13 +117,13 @@ public class ViewDAO {
 			gc.ps.setString(1, id.toString());
 			gc.rs1 = gc.ps.executeQuery();
 			while (gc.rs1.next()) {
-				return Float.parseFloat(gc.rs1.getString(1));
+				return Double.parseDouble(gc.rs1.getString(1));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return (Float) null;
+		return (Double) null;
 	}
 
 	public List<Items> getUserItems() {
