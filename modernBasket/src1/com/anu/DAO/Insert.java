@@ -66,6 +66,7 @@ public class Insert {
 	public int insertPerson(Person p, int i) {
 
 		String sql = "insert into person(address_id,First_name,Middle_name,Last_name,DOB,Gender,User_Name,password,Phone_number,email) values(?,?,?,?,?,?,?,?,?,?)";
+		//String sql = "insert into person(address_id,First_name,Middle_name,Last_name,DOB,Gender,User_Name,password,Phone_number,email,type) values(?,?,?,?,?,?,?,?,?,?,?)";
 		GetConnection gc = new GetConnection();
 		
 		try {
@@ -84,6 +85,7 @@ public class Insert {
 			gc.ps.setString(9, p.getPh_no());
 			
 			gc.ps.setString(10, p.getEmail());
+			//gc.ps.setString(11, "e");
 			gc.ps.executeUpdate();
 			
 			gc.rs1 = gc.ps.getGeneratedKeys();

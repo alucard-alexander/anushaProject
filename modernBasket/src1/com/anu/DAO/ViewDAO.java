@@ -87,6 +87,29 @@ public class ViewDAO {
 		}
 		return null;
 	}
+	
+	public String[] getEmployeePass(String uname, String type) {
+		String sql = "select password,id from person where User_Name=? and type=?";
+		GetConnection gc = new GetConnection();
+		String[] pass = new String[2];
+		System.out.println(uname+ " " +type);
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setString(1, uname);
+			gc.ps.setString(2, type);
+			gc.rs1 = gc.ps.executeQuery();
+			while (gc.rs1.next()) {
+				pass[0] = gc.rs1.getString(1);
+				pass[1] = gc.rs1.getString(2);
+				return pass;
+			}
+			return null;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public String[] getPass(String uname) {
 		String sql = "select password,id from person where User_Name=?";

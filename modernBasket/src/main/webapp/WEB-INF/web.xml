@@ -52,6 +52,12 @@
   	<description></description>
   	<servlet-class>com.anu.controller.OrderCancel</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminLogin</servlet-name>
+  	<display-name>AdminLogin</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.AdminLogin</servlet-class>
+  </servlet>
   
   
   
@@ -82,6 +88,10 @@
   <servlet-mapping>
   	<servlet-name>OrderCancel</servlet-name>
   	<url-pattern>/OrderCancel.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminLogin</servlet-name>
+  	<url-pattern>/AdminLogin.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

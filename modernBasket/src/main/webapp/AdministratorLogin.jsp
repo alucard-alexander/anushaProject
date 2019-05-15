@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
-
+<link rel="stylesheet" href="css/CheckBoxDesign.css">
 <style type="text/css">
 .myContainer1 {
 	max-width: 100%;
@@ -46,6 +46,39 @@
 
 </style>
 
+<script type="text/javascript">
+function fun(){
+	if (document.getElementById("chec").checked) {
+		var uname=document.frm.uname.value;
+		var pass=document.frm.pass.value;
+		if (uname == "") {
+			alert("Sorry, username should be entered")
+			document.frm.uname.focus();
+		}else if(pass == ""){
+			alert("Sorry, password should be entered")
+			document.frm.pass.focus();
+		}else{
+			document.frm.action="AdminLogin.do?type=a";
+			document.frm.submit();
+		}
+	}else{
+		var uname=document.frm.uname.value;
+		var pass=document.frm.pass.value;
+		if (uname == "") {
+			alert("Sorry, username should be entered")
+			document.frm.uname.focus();
+		}else if(pass == ""){
+			alert("Sorry, password should be entered")
+			document.frm.pass.focus();
+		}else{
+			document.frm.action="AdminLogin.do?type=e";
+			document.frm.submit();
+		}	
+	}
+}
+
+</script>
+
 </head>
 <body>
 	<header
@@ -62,19 +95,21 @@
 					<li><a href="UserHomePage.jsp">Items List</a></li>
 					<li><a href="">About Us</a></li>
 					<li><a href="">Contact Us</a></li>
-					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
 				</ul>
 			</nav>
 		</div> 
 	</header>
-	<form action="Login.do" method="post">
+	<form action="" method="post" name="frm">
 		<div class="myContainer1">
-			<div class="myText">Login</div>
+			<div class="myText" style="font-size: 70px;">Login</div>
 			<br> 
+			<div style="display: flex;" class="c">
+				<input type="checkbox" value="admin" id="chec"><div style="color: white;margin-left: 20px;font-size: 40px;margin-bottom: 10px;text-shadow:  0 0 5px #13b3ff;">Admin</div>
+			</div>
 			<input type="text" class="input2" name="uname"><br>
 			<input type="password" class="input2" name="pass"><br>
 			<div class="myContainer2">
-				<input type="submit" class="but1 input2" Value="Log In"> 
+				<input type="button" class="but1 input2" Value="Log In" onclick="fun()"> 
 				<input type="reset" class="but2 input2">
 			</div>
 		</div>
