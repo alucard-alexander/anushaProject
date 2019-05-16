@@ -17,6 +17,17 @@ public class Update {
 		gc.ps.setDouble(2,o1.getTotal_price());
 		gc.ps.setInt(3, o1.getId());
 		return gc.ps.executeUpdate()>0;
+	}
+	
+	public boolean updateOrderStatus(String status, int id ) throws SQLException {
+		String sql="update order1 set status=? where id=?";
+		GetConnection gc = new GetConnection();
+		
+		gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+		gc.ps.setString(1,status);
+		gc.ps.setInt(2,id);
+		//gc.ps.setInt(3, o1.getId());
+		return gc.ps.executeUpdate()>0;
 		
 		
 	}

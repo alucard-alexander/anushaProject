@@ -23,10 +23,6 @@ public class AdminLogin extends HttpServlet {
 
 		System.out.println(strPass1[0]);
 		System.out.println(strPass1[1]);
-		if (strPass1 == null) {
-			response.sendRedirect("AdministratorLogin.jsp");
-		}
-
 		System.out.println(strPass1[1]);
 		if (type.equals("a")) {
 

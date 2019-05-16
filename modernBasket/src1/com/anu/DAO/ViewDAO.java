@@ -5,71 +5,147 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.anu.GetConnection.GetConnection;
+import com.anu.bean.Address;
 import com.anu.bean.Items;
 import com.anu.bean.Order;
 import com.anu.bean.Order_Items;
+import com.anu.bean.Person;
 
 public class ViewDAO {
 	
-	
-	public Integer[] get_quantity_TotalPrice(int oid) {
-		String sql="select Quantity,Total_Price from order1 where id=?";
+	public Address getAddress(int id) {
+		String sql="select * from address where id=?";
 		GetConnection gc = new GetConnection();
-		Integer[] i= new Integer[2];
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, id);
+			gc.rs1 = gc.ps.executeQuery();
+			Address a1 = new Address();
+			while (gc.rs1.next()) {
+				a1.setDoor_no(gc.rs1.getString(2));
+				a1.setArea(gc.rs1.getString(3));
+				a1.setState(gc.rs1.getString(4));
+				a1.setLandmark(gc.rs1.getString(5));
+				a1.setPincode(gc.rs1.getInt(6));
+				a1.setStreet(gc.rs1.getString(7));
+				a1.setCity(gc.rs1.getString(8));
+				return a1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block		
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+	
+	public Person getPerson(int id) {
+		String sql="select * from person where id=?";
+		GetConnection gc = new GetConnection();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, id);
+			gc.rs1 = gc.ps.executeQuery();
+			Person p1 = new Person();
+			while (gc.rs1.next()) {
+				p1.setAddressId(gc.rs1.getInt(2));
+				p1.setFname(gc.rs1.getString(3));
+				p1.setMname(gc.rs1.getString(4));
+				p1.setLname(gc.rs1.getString(5));
+				p1.setDob(gc.rs1.getString(6));
+				p1.setGender(gc.rs1.getString(7));
+				p1.setPh_no(gc.rs1.getString(10));
+				return p1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block		
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+
+	public Order getorder1(int oid) {
+		String sql = "select * from order1 where id=?";
+		GetConnection gc = new GetConnection();
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setInt(1, oid);
 			gc.rs1 = gc.ps.executeQuery();
+			Order o1 = new Order();
 			while (gc.rs1.next()) {
-				i[0]= gc.rs1.getInt(1);
-				i[1]= gc.rs1.getInt(2);
-				return i;
-			}		
+				o1.setPid(gc.rs1.getInt(2));
+				o1.setItem_id(gc.rs1.getInt(3));
+				o1.setQuantity(gc.rs1.getInt(4));
+				o1.setTotal_price(gc.rs1.getDouble(5));
+				o1.setStatus(gc.rs1.getString(6));
+				return o1;
+			}
+			return null;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	public String[] getitemName_Price(int id) throws SQLException {
-		String sql="select items_name,price from items where id=?";
+
+	public Integer[] get_quantity_TotalPrice(int oid) {
+		String sql = "select Quantity,Total_Price from order1 where id=?";
 		GetConnection gc = new GetConnection();
-		String[] ret=new String[2];
+		Integer[] i = new Integer[2];
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, oid);
+			gc.rs1 = gc.ps.executeQuery();
+			while (gc.rs1.next()) {
+				i[0] = gc.rs1.getInt(1);
+				i[1] = gc.rs1.getInt(2);
+				return i;
+			}
+			return null;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String[] getitemName_Price(int id) throws SQLException {
+		String sql = "select items_name,price from items where id=?";
+		GetConnection gc = new GetConnection();
+		String[] ret = new String[2];
 		gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 		gc.ps.setInt(1, id);
 		gc.rs1 = gc.ps.executeQuery();
 		while (gc.rs1.next()) {
-			ret[0]=gc.rs1.getString(1);
-			ret[1]=gc.rs1.getString(2);
+			ret[0] = gc.rs1.getString(1);
+			ret[1] = gc.rs1.getString(2);
 			return ret;
 		}
 		return null;
 	}
-	
-	public List<Order_Items> getAllUserorderedListPending() {
+
+	public List<Order_Items> getAllUserorderedListPending(String status) {
 		String sql = "select * from order1 where status=?";
 		String sql1;
 		GetConnection gc = new GetConnection();
 		List<Order_Items> orderList = new ArrayList<Order_Items>();
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
-			gc.ps.setString(1, "pending");
+			gc.ps.setString(1, status);
 			gc.rs1 = gc.ps.executeQuery();
 
 			while (gc.rs1.next()) {
-
 				Order_Items o1 = new Order_Items();
-				
 				o1.setOrder_id(gc.rs1.getInt(1));
-				
 				o1.setPid(gc.rs1.getInt(2));
-
 				o1.setItem_id(gc.rs1.getInt(3));
 				o1.setQuantity(gc.rs1.getInt(4));
 				o1.setTotal_price(gc.rs1.getInt(5));
 				o1.setStatus(gc.rs1.getString(6));
-				sql1="select * from items where id=?";
+				sql1 = "select * from items where id=?";
 				gc.ps1 = gc.getMysqlConnection().prepareStatement(sql1);
 				gc.ps1.setInt(1, gc.rs1.getInt(3));
 				gc.rs2 = gc.ps1.executeQuery();
@@ -86,7 +162,6 @@ public class ViewDAO {
 		}
 		return null;
 	}
-	
 
 	public List<Order_Items> getorderedList(int id) {
 		String sql = "select * from order1 where pid=?";
@@ -101,16 +176,16 @@ public class ViewDAO {
 			while (gc.rs1.next()) {
 
 				Order_Items o1 = new Order_Items();
-				
+
 				o1.setOrder_id(gc.rs1.getInt(1));
-				
+
 				o1.setPid(gc.rs1.getInt(2));
 
 				o1.setItem_id(gc.rs1.getInt(3));
 				o1.setQuantity(gc.rs1.getInt(4));
 				o1.setTotal_price(gc.rs1.getInt(5));
 				o1.setStatus(gc.rs1.getString(6));
-				sql1="select * from items where id=?";
+				sql1 = "select * from items where id=?";
 				gc.ps1 = gc.getMysqlConnection().prepareStatement(sql1);
 				gc.ps1.setInt(1, gc.rs1.getInt(3));
 				gc.rs2 = gc.ps1.executeQuery();
@@ -127,12 +202,12 @@ public class ViewDAO {
 		}
 		return null;
 	}
-	
+
 	public String[] getEmployeePass(String uname, String type) {
 		String sql = "select password,id from person where User_Name=? and type=?";
 		GetConnection gc = new GetConnection();
 		String[] pass = new String[2];
-		System.out.println(uname+ " " +type);
+		System.out.println(uname + " " + type);
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setString(1, uname);

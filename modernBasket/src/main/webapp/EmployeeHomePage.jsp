@@ -91,15 +91,22 @@ th:last-child {
 
 
 <script type="text/javascript">
-	function modify(id) {
+	function process(id) {
 		formname='frm'+id; 
-		document.forms[formname].action='UserModifyOrder.jsp';
+		document.forms[formname].action='EmployeeUpdateStatus.do?status=Processing...';
+		document.forms[formname].submit();
+
+	}
+	
+	function details(id){
+		formname='frm'+id; 
+		document.forms[formname].action='EmployeeUserDetails.jsp';
 		document.forms[formname].submit();
 	}
 	
-	function cancelOrder1(id){
+	function delivery(id){
 		formname='frm'+id; 
-		document.forms[formname].action='UserOrderCancelConfirm.jsp';
+		document.forms[formname].action='EmployeeUpdateStatus.do?status=Delivered';
 		document.forms[formname].submit();
 	}
 </script>
@@ -109,11 +116,11 @@ th:last-child {
 	<%
 		if (session.getAttribute("id") == null) {
 			System.out.println("Testing");
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("AdministratorLogin.jsp");
 		} else {
 	%>
 	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
+		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)); height: 100%;">
 		<div class="container1">
 			<nav>
 				<h2 class="brand">
@@ -121,16 +128,23 @@ th:last-child {
 					</a>
 				</h2>
 				<ul>
-					<li><a href="UserHomePage.jsp">Items List</a></li>
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
+					<li><a href="EmployeeHomePage.jsp">Ordered List </a></li>
+					<li><a href="EmployeeDeliveredList.jsp">Delivered List </a></li>
 					<li><a href="Logout.do">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 	<div class="cen">
-		<table>
+		<table style="top: 10%">
+			<tr>
+				<td colspan="7" style="border: transparent; height: 50px;">
+					<div
+						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
+						<label style="font-size: 30px;">Pending</label>
+					</div>
+				</td>
+			</tr>
 			<tr>
 				<th><h1>ITEM NAME</h1></th>
 				<th><h1>QUANTITY</h1></th>
@@ -142,7 +156,7 @@ th:last-child {
 			</tr>
 			<%
 				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
-					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending()) {
+					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("pending")) {
 			%>
 			<tr>
 				<td><%=o1.getItems_name().toUpperCase()%></td>
@@ -152,21 +166,64 @@ th:last-child {
 				<td><%=o1.getTotal_price()%></td>
 
 				<td><%=o1.getStatus()%></td>
-				<form name="frm<%=o1.getOrder_id()%>">
+				<form name="frm<%=o1.getOrder_id()%>" method="post">
 					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
 					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
-					<td><input type="button" value="CANCEL" class="but can"
-						onclick="cancelOrder1(<%=o1.getOrder_id()%>)"> <%
- 						if (!(o1.getStatus().equalsIgnoreCase("processing..."))) {
- 							%> <input type="button" value="MODIFY" class="but mod" onclick="modify(<%=o1.getOrder_id()%>)"> 
- 							<%
- 								}
- 						%></td>
+					<td>
+						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
+						<input type="button" class="but" value="Process.." onclick="process(<%=o1.getOrder_id()%>)">
+					</td>
 				</form>
 			</tr>
 			<%
 				}
 			%>
+
+			<tr>
+				<td colspan="7" style="border: transparent;">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="7" style="border: transparent; height: 50px;">
+					<div
+						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
+						<label style="font-size: 30px;">Process...</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th><h1>ITEM NAME</h1></th>
+				<th><h1>QUANTITY</h1></th>
+				<th><h1>PRICE</h1></th>
+				<th><h1>GST</h1></th>
+				<th><h1>TOTAL PRICE</h1></th>
+				<th><h1>STATUS</h1></th>
+				<th><h1>UPDATE</h1></th>
+			</tr>
+			<%
+				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
+					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("processing...")) {
+			%>
+			<tr>
+				<td><%=o1.getItems_name().toUpperCase()%></td>
+				<td><%=o1.getQuantity()%></td>
+				<td><%=o1.getPrice()%></td>
+				<td>10%</td>
+				<td><%=o1.getTotal_price()%></td>
+				<td><%=o1.getStatus()%></td>
+				<form name="frm<%=o1.getOrder_id()%>" method="post">
+					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
+					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
+					<td>
+						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
+						<input type="button" class="but" value="Delivered" onclick="delivery(<%=o1.getOrder_id()%>)">
+					</td>
+				</form>
+			</tr>
+			<%
+				}
+			%>
+
+
 		</table>
 	</div>
 	<%

@@ -3,6 +3,15 @@ package com.anu.bean;
 public class Person {
 	String fname,mname,lname,dob,gender,userName,password,email;
 	String ph_no;
+	int addressId;
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
 	public String getEmail() {
 		return email;
 	}
