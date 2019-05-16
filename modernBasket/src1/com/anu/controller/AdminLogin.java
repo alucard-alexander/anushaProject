@@ -35,6 +35,7 @@ public class AdminLogin extends HttpServlet {
 
 				HttpSession session = request.getSession();
 				session.setAttribute("id", Integer.parseInt(strPass1[1]));
+				session.setAttribute("type", "e");
 				response.sendRedirect("EmployeeHomePage.jsp");
 			} else {
 				response.sendRedirect("Error.jsp");

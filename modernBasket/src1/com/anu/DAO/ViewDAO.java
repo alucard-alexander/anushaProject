@@ -47,6 +47,46 @@ public class ViewDAO {
 		return null;
 	}
 	
+	public List<Order_Items> getAllUserorderedListPending() {
+		String sql = "select * from order1 where status=?";
+		String sql1;
+		GetConnection gc = new GetConnection();
+		List<Order_Items> orderList = new ArrayList<Order_Items>();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setString(1, "pending");
+			gc.rs1 = gc.ps.executeQuery();
+
+			while (gc.rs1.next()) {
+
+				Order_Items o1 = new Order_Items();
+				
+				o1.setOrder_id(gc.rs1.getInt(1));
+				
+				o1.setPid(gc.rs1.getInt(2));
+
+				o1.setItem_id(gc.rs1.getInt(3));
+				o1.setQuantity(gc.rs1.getInt(4));
+				o1.setTotal_price(gc.rs1.getInt(5));
+				o1.setStatus(gc.rs1.getString(6));
+				sql1="select * from items where id=?";
+				gc.ps1 = gc.getMysqlConnection().prepareStatement(sql1);
+				gc.ps1.setInt(1, gc.rs1.getInt(3));
+				gc.rs2 = gc.ps1.executeQuery();
+				while (gc.rs2.next()) {
+					o1.setItems_name(gc.rs2.getString(2));
+					o1.setPrice(gc.rs2.getFloat(3));
+				}
+				orderList.add(o1);
+			}
+			return orderList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 
 	public List<Order_Items> getorderedList(int id) {
 		String sql = "select * from order1 where pid=?";

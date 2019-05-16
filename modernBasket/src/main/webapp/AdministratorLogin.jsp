@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,41 +42,46 @@
 	margin-top: 10px;
 	background-color: yellow;
 }
-
-
 </style>
 
 <script type="text/javascript">
-function fun(){
-	if (document.getElementById("chec").checked) {
-		var uname=document.frm.uname.value;
-		var pass=document.frm.pass.value;
-		if (uname == "") {
-			alert("Sorry, username should be entered")
-			document.frm.uname.focus();
-		}else if(pass == ""){
-			alert("Sorry, password should be entered")
-			document.frm.pass.focus();
+	function change(){
+		if (document.getElementById("chec").checked) {
+			document.getElementById("check1").innerHTML ="Admin";
 		}else{
-			document.frm.action="AdminLogin.do?type=a";
-			document.frm.submit();
+			document.getElementById("check1").innerHTML ="Employee";
 		}
-	}else{
-		var uname=document.frm.uname.value;
-		var pass=document.frm.pass.value;
-		if (uname == "") {
-			alert("Sorry, username should be entered")
-			document.frm.uname.focus();
-		}else if(pass == ""){
-			alert("Sorry, password should be entered")
-			document.frm.pass.focus();
-		}else{
-			document.frm.action="AdminLogin.do?type=e";
-			document.frm.submit();
-		}	
 	}
-}
 
+	function fun() {
+		if (document.getElementById("chec").checked) {
+			var uname = document.frm.uname.value;
+			var pass = document.frm.pass.value;
+			if (uname == "") {
+				alert("Sorry, username should be entered")
+				document.frm.uname.focus();
+			} else if (pass == "") {
+				alert("Sorry, password should be entered")
+				document.frm.pass.focus();
+			} else {
+				document.frm.action = "AdminLogin.do?type=a";
+				document.frm.submit();
+			}
+		} else {
+			var uname = document.frm.uname.value;
+			var pass = document.frm.pass.value;
+			if (uname == "") {
+				alert("Sorry, username should be entered")
+				document.frm.uname.focus();
+			} else if (pass == "") {
+				alert("Sorry, password should be entered")
+				document.frm.pass.focus();
+			} else {
+				document.frm.action = "AdminLogin.do?type=e";
+				document.frm.submit();
+			}
+		}
+	}
 </script>
 
 </head>
@@ -97,20 +102,21 @@ function fun(){
 					<li><a href="">Contact Us</a></li>
 				</ul>
 			</nav>
-		</div> 
+		</div>
 	</header>
 	<form action="" method="post" name="frm">
 		<div class="myContainer1">
 			<div class="myText" style="font-size: 70px;">Login</div>
-			<br> 
+			<br>
 			<div style="display: flex;" class="c">
-				<input type="checkbox" value="admin" id="chec"><div style="color: white;margin-left: 20px;font-size: 40px;margin-bottom: 10px;text-shadow:  0 0 5px #13b3ff;">Admin</div>
+				<input type="checkbox" value="admin" id="chec" onclick="change()" style="margin-left: 20px;margin-top: 15px;">
+				<label style="color: white; margin-left: 40px; font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 5px #13b3ff;" id="check1">Employee</label>
 			</div>
-			<input type="text" class="input2" name="uname"><br>
-			<input type="password" class="input2" name="pass"><br>
+			<input type="text" class="input2" name="uname"><br> <input
+				type="password" class="input2" name="pass"><br>
 			<div class="myContainer2">
-				<input type="button" class="but1 input2" Value="Log In" onclick="fun()"> 
-				<input type="reset" class="but2 input2">
+				<input type="button" class="but1 input2" Value="Log In"
+					onclick="fun()"> <input type="reset" class="but2 input2">
 			</div>
 		</div>
 	</form>

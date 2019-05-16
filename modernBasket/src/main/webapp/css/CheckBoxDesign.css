@@ -3,9 +3,10 @@
 
 
 input[type="checkbox"]{
+	
 	position: relative;
 	width: 120px;
-	height: 40px;
+	height: 20px;
 	-webkit-appearance: none;
 	background: linear-gradient(0deg, #333, #000);
 	outline: none;
@@ -22,14 +23,15 @@ input:checked[type="checkbox"]{
 input[type="checkbox"]:before{
 	content: '';
 	position: absolute;
+	transition: .5s;
 	top:0;
 	left 0;
 	width: 80px;
-	height: 40px;
+	height: 20px;
 	background: linear-gradient(0deg, #000, #6b6b6b);
 	border-radius: 20px;
 	box-shadow: 0 0 0 1px #232323;
-	transition: .5s;
+	
 }
 
  input:checked[type="checkbox"]:before{

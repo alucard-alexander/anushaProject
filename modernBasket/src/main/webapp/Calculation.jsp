@@ -70,11 +70,10 @@ label {
 	<%
 		if(session.getAttribute("id")==null){
 			response.sendRedirect("Login.jsp");
-			
 		}else{
 		int id=Integer.parseInt(request.getParameter("id"));
 		System.out.println(id);
-		//int id = 4;
+		
 	%>
 	
 	<header
