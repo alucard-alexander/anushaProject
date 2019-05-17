@@ -16,6 +16,8 @@ public class Update {
 		//gc.ps.setInt(1,o1.getQuantity());
 		//gc.ps.setDouble(2,o1.getTotal_price());
 		//gc.ps.setInt(3, o1.getId());
+		gc.ps.setString(1, pass);
+		gc.ps.setInt(2, id);
 		return gc.ps.executeUpdate()>0;
 	}
 	
