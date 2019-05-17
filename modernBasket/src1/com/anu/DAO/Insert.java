@@ -7,11 +7,14 @@ import org.apache.catalina.tribes.group.Response;
 
 import com.anu.GetConnection.GetConnection;
 import com.anu.bean.Address;
+import com.anu.bean.Items;
 import com.anu.bean.Order;
 import com.anu.bean.Person;
 import com.anu.bean.security_questions;
 
 public class Insert {
+	
+	
 	
 	public boolean insertUserOrder(Order o1) {
 		String sql = "insert into order1(pid,item_id,Quantity,Total_price,status) values(?,?,?,?,?)";
@@ -34,6 +37,35 @@ public class Insert {
 		}
 		return false;
 	}
+	
+	public int insertItems(Items item) {
+		String sql = "insert into items(items_name,price) values(?,?)";
+		GetConnection gc = new GetConnection();
+
+		try {
+			gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+
+			gc.ps.setString(1, item.getItemName());
+			gc.ps.setFloat(2, item.getPrice());
+			/*
+			 * gc.ps.setString(3, a.getState()); gc.ps.setString(4, a.getLandmark());
+			 * gc.ps.setInt(5, a.getPincode()); gc.ps.setString(6, a.getStreet());
+			 * gc.ps.setString(7, a.getCity());
+			 */
+			gc.ps.executeUpdate();
+			gc.rs1 = gc.ps.getGeneratedKeys();
+			if (gc.rs1 != null && gc.rs1.next()) {
+				//System.out.println("Generated Emp Id: " + gc.rs1.getInt(1));
+				return (gc.rs1.getInt(1));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+	
 
 	public int insertAddress(Address a) {
 		String sql = "insert into address(Door_No,Area,State,Landmark,Pincode,Street,City) values(?,?,?,?,?,?,?)";

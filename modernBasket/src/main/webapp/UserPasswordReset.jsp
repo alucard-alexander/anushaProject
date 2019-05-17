@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
 
 <style type="text/css">
 .myContainer1 {
@@ -43,9 +42,18 @@
 	margin-top: 10px;
 	background-color: yellow;
 }
+
+
 </style>
 
-
+<script type="text/javascript">
+function forg(){
+	document.frm.action="UserPasswordReset.jsp";
+	document.frm.submit();
+	
+	
+}
+</script>
 
 </head>
 <body>
@@ -66,7 +74,7 @@
 					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
 				</ul>
 			</nav>
-		</div>
+		</div> 
 	</header>
 	
 	<%

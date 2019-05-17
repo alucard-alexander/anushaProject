@@ -82,6 +82,18 @@
   	<description></description>
   	<servlet-class>com.anu.controller.PassReset</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ItemAdd</servlet-name>
+  	<display-name>ItemAdd</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.ItemAdd</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminAddItem1</servlet-name>
+  	<display-name>AdminAddItem1</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.AdminAddItem1</servlet-class>
+  </servlet>
   
   
   
@@ -132,6 +144,14 @@
   <servlet-mapping>
   	<servlet-name>PassReset</servlet-name>
   	<url-pattern>/PassReset.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ItemAdd</servlet-name>
+  	<url-pattern>/ItemAdd.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminAddItem1</servlet-name>
+  	<url-pattern>/AdminAddItem1.do</url-pattern>
   </servlet-mapping>
   
 </web-app>
