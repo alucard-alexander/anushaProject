@@ -31,9 +31,11 @@ public class Order extends HttpServlet {
 		o1.setTotal_price(price);
 		session.removeAttribute("item_id");
 		if (new Insert().insertUserOrder(o1)) {
+			session.setAttribute("msg", "Your Order is successfully placed");
 			response.sendRedirect("UserOrderedList.jsp");
 		} else {
-			response.sendRedirect("Error.jsp");
+			session.setAttribute("msg", "There was an error placing an order");
+			response.sendRedirect("UserHomePage.jsp");
 		}
 
 	}

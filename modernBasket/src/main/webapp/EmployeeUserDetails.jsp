@@ -55,12 +55,25 @@ label {
 				</h2>
 				<ul>
 					<li><a href="EmployeeHomePage.jsp">Ordered List </a></li>
-					<li><a href="EmployeeDeliveredList.jsp">Delivered List </a></li>
 					<li><a href="Logout.do">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
+	<%
+		if (session.getAttribute("msg") != null) {
+		String msg = session.getAttribute("msg").toString();
+		session.removeAttribute("msg");
+		//String msg = "Logged in properly";
+	%>
+	<div class="cen111">
+		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+			<h3><%=msg%></h3>
+		</div>
+	</div>
+	<%
+		}
+	%>
 	<%
 	Order o1= new ViewDAO().getorder1(Integer.parseInt(request.getParameter("oid")));
 	String[] ItemName= new ViewDAO().getitemName_Price(o1.getItem_id()); 

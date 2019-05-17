@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/CheckBoxDesign.css">
 <style type="text/css">
+
+
 .myContainer1 {
 	max-width: 100%;
 	width: 100%;
@@ -45,11 +47,11 @@
 </style>
 
 <script type="text/javascript">
-	function change(){
+	function change() {
 		if (document.getElementById("chec").checked) {
-			document.getElementById("check1").innerHTML ="Admin";
-		}else{
-			document.getElementById("check1").innerHTML ="Employee";
+			document.getElementById("check1").innerHTML = "Admin";
+		} else {
+			document.getElementById("check1").innerHTML = "Employee";
 		}
 	}
 
@@ -104,13 +106,30 @@
 			</nav>
 		</div>
 	</header>
+
+	<%
+		if (session.getAttribute("msg") != null) {
+		String msg = session.getAttribute("msg").toString();
+		session.removeAttribute("msg");
+		//String msg = "Logged in properly";
+	%>
+	<div class="cen111">
+		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+			<h3><%=msg%></h3>
+		</div>
+	</div>
+	<%
+		}
+	%>
 	<form action="" method="post" name="frm">
 		<div class="myContainer1">
 			<div class="myText" style="font-size: 70px;">Login</div>
 			<br>
 			<div style="display: flex;" class="c">
-				<input type="checkbox" value="admin" id="chec" onclick="change()" style="margin-left: 20px;margin-top: 15px;">
-				<label style="color: white; margin-left: 40px; font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 5px #13b3ff;" id="check1">Employee</label>
+				<input type="checkbox" value="admin" id="chec" onclick="change()"
+					style="margin-left: 20px; margin-top: 15px;"> <label
+					style="color: white; margin-left: 40px; font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 5px #13b3ff;"
+					id="check1">Employee</label>
 			</div>
 			<input type="text" class="input2" name="uname"><br> <input
 				type="password" class="input2" name="pass"><br>

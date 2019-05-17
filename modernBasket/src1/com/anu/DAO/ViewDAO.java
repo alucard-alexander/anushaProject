@@ -164,13 +164,14 @@ public class ViewDAO {
 	}
 
 	public List<Order_Items> getorderedList(int id) {
-		String sql = "select * from order1 where pid=?";
+		String sql = "select * from order1 where pid=? and status <> ?";
 		String sql1;
 		GetConnection gc = new GetConnection();
 		List<Order_Items> orderList = new ArrayList<Order_Items>();
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setInt(1, id);
+			gc.ps.setString(2,"Delivered");
 			gc.rs1 = gc.ps.executeQuery();
 
 			while (gc.rs1.next()) {
@@ -218,12 +219,13 @@ public class ViewDAO {
 				pass[1] = gc.rs1.getString(2);
 				return pass;
 			}
-			return null;
+			pass[1]="0";
+			return pass;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return pass;
 	}
 
 	public String[] getPass(String uname) {
@@ -240,6 +242,8 @@ public class ViewDAO {
 				pass[1] = gc.rs1.getString(2);
 				return pass;
 			}
+			pass[1]="0";
+			return pass;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -70,6 +70,21 @@ function order(id,name){
 	
 	<%} %>
 	
+	<%
+		if (session.getAttribute("msg") != null) {
+		String msg = session.getAttribute("msg").toString();
+		session.removeAttribute("msg");
+		//String msg = "Logged in properly";
+	%>
+	<div class="cen111">
+		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+			<h3><%=msg%></h3>
+		</div>
+	</div>
+	<%
+		}
+	%>
+	
 	<div class="container"
 		style="top: 20%; left: 100px; right: 100px; position: absolute;">
 		<%

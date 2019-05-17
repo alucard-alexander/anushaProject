@@ -85,7 +85,47 @@ public class Insert {
 			gc.ps.setString(9, p.getPh_no());
 			
 			gc.ps.setString(10, p.getEmail());
-			//gc.ps.setString(11, "e");
+			//gc.ps.setString(11, "a");
+			gc.ps.executeUpdate();
+			
+			gc.rs1 = gc.ps.getGeneratedKeys();
+			
+			if (gc.rs1 != null && gc.rs1.next()) {
+				
+				System.out.println("Generated Emp Id: " + gc.rs1.getInt(1));
+				return (gc.rs1.getInt(1));
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int insertEmployee(Person p, int i) {
+
+		
+		String sql = "insert into person(address_id,First_name,Middle_name,Last_name,DOB,Gender,User_Name,password,Phone_number,email,type) values(?,?,?,?,?,?,?,?,?,?,?)";
+		GetConnection gc = new GetConnection();
+		
+		try {
+
+			gc.ps = GetConnection.getMysqlConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+
+			gc.ps.setInt(1, i);
+			gc.ps.setString(2, p.getFname());
+			gc.ps.setString(3, p.getMname());
+			gc.ps.setString(4, p.getLname());
+			gc.ps.setString(5, p.getDob());
+			gc.ps.setString(6, p.getGender());
+			gc.ps.setString(7, p.getUserName());
+			gc.ps.setString(8, p.getPassword());
+			
+			gc.ps.setString(9, p.getPh_no());
+			
+			gc.ps.setString(10, p.getEmail());
+			gc.ps.setString(11, "e");
 			gc.ps.executeUpdate();
 			
 			gc.rs1 = gc.ps.getGeneratedKeys();

@@ -20,21 +20,22 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-
-
+		HttpSession session = request.getSession();
 		ViewDAO v1 = new ViewDAO();
 		String[] strPass1 = v1.getPass(request.getParameter("uname"));
+		if (strPass1[1] == "0") {
+			session.setAttribute("msg", "User Name Does not exists");
+			response.sendRedirect("Login.jsp");
+		} else {
+			if (request.getParameter("pass").equals(strPass1[0])) {
+				session.setAttribute("id", Integer.parseInt(strPass1[1]));
+				session.setAttribute("msg", "Logged in successfully");
+				response.sendRedirect("UserHomePage.jsp");
+			} else {
+				session.setAttribute("msg", "Invalid Password");
+				response.sendRedirect("Login.jsp");
+			}
 
-		if (request.getParameter("pass").equals(strPass1[0])) {
-			//System.out.println(strPass+ " " + strPass1);
-			HttpSession session = request.getSession();
-			session.setAttribute("id", Integer.parseInt(strPass1[1]));
-			response.sendRedirect("UserHomePage.jsp");
-		}else {
-			response.sendRedirect("Error.jsp");
 		}
-
 	}
-
 }

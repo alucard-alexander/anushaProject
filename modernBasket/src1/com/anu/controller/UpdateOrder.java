@@ -37,9 +37,11 @@ public class UpdateOrder extends HttpServlet {
 			if (new Update().updateOrder(o1)) {
 				session.removeAttribute("item_id");
 				session.removeAttribute("oid");
+				session.setAttribute("msg", "Your order is updated");
 				response.sendRedirect("UserOrderedList.jsp");
 			} else {
-				response.sendRedirect("Error.jsp");
+				session.setAttribute("msg", "There was an error while updating your order, try some other time");
+				response.sendRedirect("UserOrderedList.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

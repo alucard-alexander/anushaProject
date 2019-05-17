@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+.cen111 {
+	justify-content: center;
+	display: flex;
+}
+
 
 * {
 	margin: 0;

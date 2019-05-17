@@ -64,6 +64,18 @@
   	<description></description>
   	<servlet-class>com.anu.controller.EmployeeUpdateStatus</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminDeleteOrder</servlet-name>
+  	<display-name>AdminDeleteOrder</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.AdminDeleteOrder</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminEmolyeeAdd</servlet-name>
+  	<display-name>AdminEmolyeeAdd</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.AdminEmolyeeAdd</servlet-class>
+  </servlet>
   
   
   
@@ -102,6 +114,14 @@
   <servlet-mapping>
   	<servlet-name>EmployeeUpdateStatus</servlet-name>
   	<url-pattern>/EmployeeUpdateStatus.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminDeleteOrder</servlet-name>
+  	<url-pattern>/AdminDeleteOrder.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminEmolyeeAdd</servlet-name>
+  	<url-pattern>/AdminEmolyeeAdd.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

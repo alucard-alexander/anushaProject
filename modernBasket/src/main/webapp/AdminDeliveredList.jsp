@@ -1,5 +1,5 @@
-<%@page import="com.anu.bean.Order_Items"%>
 <%@page import="com.anu.DAO.ViewDAO"%>
+<%@page import="com.anu.bean.Order_Items"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -91,24 +91,14 @@ th:last-child {
 
 
 <script type="text/javascript">
-	function process(id) {
-		formname='frm'+id; 
-		document.forms[formname].action='EmployeeUpdateStatus.do?status=Processing...';
-		document.forms[formname].submit();
 
-	}
+function delete1(id){
+	formname='frm'+id; 
+	document.forms[formname].action='AdminDeleteOrder.do';
+	document.forms[formname].submit();
 	
-	function details(id){
-		formname='frm'+id; 
-		document.forms[formname].action='EmployeeUserDetails.jsp';
-		document.forms[formname].submit();
-	}
-	
-	function delivery(id){
-		formname='frm'+id; 
-		document.forms[formname].action='EmployeeUpdateStatus.do?status=Delivered';
-		document.forms[formname].submit();
-	}
+}
+
 </script>
 
 
@@ -128,7 +118,9 @@ th:last-child {
 					</a>
 				</h2>
 				<ul>
-					<li><a href="EmployeeHomePage.jsp">Ordered List </a></li>
+					<li><a href="Admin.jsp">Ordered List </a></li>
+					<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
+					<li><a href="AdminEmployeeAdd.jsp">Add employee</a></li>
 					<li><a href="Logout.do">Logout</a></li>
 				</ul>
 			</nav>
@@ -169,7 +161,7 @@ th:last-child {
 			</tr>
 			<%
 				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
-					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("pending")) {
+					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("Delivered")) {
 			%>
 			<tr>
 				<td><%=o1.getItems_name().toUpperCase()%></td>
@@ -183,66 +175,15 @@ th:last-child {
 					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
 					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
 					<td>
-						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
-						<input type="button" class="but" value="Process.." onclick="process(<%=o1.getOrder_id()%>)">
+						<input type="button" class="but" value="Delete" onclick="delete1(<%=o1.getOrder_id()%>)">
 					</td>
 				</form>
 			</tr>
 			<%
 				}
-			%>
 
-			<tr>
-				<td colspan="7" style="border: transparent;">&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="7" style="border: transparent; height: 50px;">
-					<div
-						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
-						<label style="font-size: 30px;">Process...</label>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th><h1>ITEM NAME</h1></th>
-				<th><h1>QUANTITY</h1></th>
-				<th><h1>PRICE</h1></th>
-				<th><h1>GST</h1></th>
-				<th><h1>TOTAL PRICE</h1></th>
-				<th><h1>STATUS</h1></th>
-				<th><h1>UPDATE</h1></th>
-			</tr>
-			<%
-				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
-					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("processing...")) {
-			%>
-			<tr>
-				<td><%=o1.getItems_name().toUpperCase()%></td>
-				<td><%=o1.getQuantity()%></td>
-				<td><%=o1.getPrice()%></td>
-				<td>10%</td>
-				<td><%=o1.getTotal_price()%></td>
-				<td><%=o1.getStatus()%></td>
-				<form name="frm<%=o1.getOrder_id()%>" method="post">
-					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
-					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
-					<td>
-						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
-						<input type="button" class="but" value="Delivered" onclick="delivery(<%=o1.getOrder_id()%>)">
-					</td>
-				</form>
-			</tr>
-			<%
 				}
 			%>
-
-
-		</table>
-	</div>
-	<%
-		}
-	%>
+		
 </body>
-
-
 </html>
