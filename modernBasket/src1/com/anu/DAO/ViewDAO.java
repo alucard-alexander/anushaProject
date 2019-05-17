@@ -12,9 +12,50 @@ import com.anu.bean.Order_Items;
 import com.anu.bean.Person;
 
 public class ViewDAO {
+
+	public int getUserPid(String uname) {
+		String sql = "select id from person where User_Name=?";
+		GetConnection gc = new GetConnection();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setString(1, uname);;
+			gc.rs1 = gc.ps.executeQuery();
+			while(gc.rs1.next()) {
+				return gc.rs1.getInt(1);
+			}
+			//return 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+
+		return 0;
+	}
+
 	
+	
+	public String getqans(int pid) {
+		String sql = "select question_answer from security_questions where person_id=?";
+		GetConnection gc = new GetConnection();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, pid);
+			gc.rs1 = gc.ps.executeQuery();
+			while(gc.rs1.next()) {
+				return gc.rs1.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+		return null;
+	}
+
 	public Address getAddress(int id) {
-		String sql="select * from address where id=?";
+		String sql = "select * from address where id=?";
 		GetConnection gc = new GetConnection();
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
@@ -31,17 +72,17 @@ public class ViewDAO {
 				a1.setCity(gc.rs1.getString(8));
 				return a1;
 			}
-			
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block		
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 		return null;
 	}
-	
+
 	public Person getPerson(int id) {
-		String sql="select * from person where id=?";
+		String sql = "select * from person where id=?";
 		GetConnection gc = new GetConnection();
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
@@ -58,9 +99,9 @@ public class ViewDAO {
 				p1.setPh_no(gc.rs1.getString(10));
 				return p1;
 			}
-			
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block		
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -171,7 +212,7 @@ public class ViewDAO {
 		try {
 			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
 			gc.ps.setInt(1, id);
-			gc.ps.setString(2,"Delivered");
+			gc.ps.setString(2, "Delivered");
 			gc.rs1 = gc.ps.executeQuery();
 
 			while (gc.rs1.next()) {
@@ -219,7 +260,7 @@ public class ViewDAO {
 				pass[1] = gc.rs1.getString(2);
 				return pass;
 			}
-			pass[1]="0";
+			pass[1] = "0";
 			return pass;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -242,7 +283,7 @@ public class ViewDAO {
 				pass[1] = gc.rs1.getString(2);
 				return pass;
 			}
-			pass[1]="0";
+			pass[1] = "0";
 			return pass;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
