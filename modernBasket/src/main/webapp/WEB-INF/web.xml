@@ -76,6 +76,12 @@
   	<description></description>
   	<servlet-class>com.anu.controller.AdminEmolyeeAdd</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PassReset</servlet-name>
+  	<display-name>PassReset</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.PassReset</servlet-class>
+  </servlet>
   
   
   
@@ -122,6 +128,10 @@
   <servlet-mapping>
   	<servlet-name>AdminEmolyeeAdd</servlet-name>
   	<url-pattern>/AdminEmolyeeAdd.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PassReset</servlet-name>
+  	<url-pattern>/PassReset.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
+<link rel="stylesheet" href="css/itemsuser.css">
 
 <style type="text/css">
 .myContainer1 {
@@ -42,18 +43,9 @@
 	margin-top: 10px;
 	background-color: yellow;
 }
-
-
 </style>
 
-<script type="text/javascript">
-function forg(){
-	document.frm.action="UserPasswordReset.jsp";
-	document.frm.submit();
-	
-	
-}
-</script>
+
 
 </head>
 <body>
@@ -74,8 +66,9 @@ function forg(){
 					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
 				</ul>
 			</nav>
-		</div> 
+		</div>
 	</header>
+	
 	<%
 		if (session.getAttribute("msg") != null) {
 		String msg = session.getAttribute("msg").toString();
@@ -90,21 +83,24 @@ function forg(){
 	<%
 		}
 	%>
-	<form action="Login.do" method="post" name="frm">
+	<form action="PassReset.do" method="post" name="frm">
 		<div class="myContainer1">
 			<div class="myText">Login</div>
-			<br> 
-			<input type="text" class="input2" name="uname" placeholder="User Name"><br>
-			<input type="password" class="input2" name="pass" placeholder="password"><br>
+			<br> <input type="text" class="input2" name="uname" placeholder="User Name"><br>
+			<input type="text" class="input2" name="ques" placeholder="Enter the Name of your Best teacher?"><br>
+			<input type="password" placeholder="Enter the Password" name="pass">
+			<input type="password" placeholder="Re-enter the Password" name="repass">
 			<div class="myContainer2">
-				<input type="submit" class="but" Value="Log In"> 
-				<input type="reset" class="but">
-				
+				<input type="submit" class="but" Value="Reset Password"> 
+				<input type="reset" class="but" value="Reset Form">
+
 			</div>
 			<div class="myContainer2">
-				<input type="button" class="but" value="Forgot Password" onclick="forg()">
+				
 			</div>
 		</div>
 	</form>
+
+
 </body>
 </html>
