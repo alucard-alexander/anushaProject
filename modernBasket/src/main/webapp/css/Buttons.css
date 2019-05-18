@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+.normal {
+	width: 160px;
+	border-radius: 5px;
+	height: 30px;
+ 	transition:all 3s ease-in-out;
+}
+
+.normal:hover {
+	
+	animation: test 2s;
+	/*background: linear-gradient(to right, #a8c0ff, #3f2b96);*/
+	/*background: green;*/	
+	
+}
+
+.opposite {
+	width: 160px;
+	border-radius: 5px;
+	height: 30px;
+	transition-duration: 2.5s;
+}
+
+.opposite:hover {
+	animation: est1 2s;
+	
+}
+
+@keyframes test{
+	from{
+	}
+	to{
+		background: linear-gradient(to right, #a8c0ff, #3f2b96);	
+	}
+	
+}
+
+@keyframes est1{
+	from{
+	}
+	to{
+		background: linear-gradient(to right,#3f2b96, #a8c0ff);
+	}
+	
+}

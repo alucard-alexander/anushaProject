@@ -49,10 +49,8 @@ public class AdminAddItem1 extends HttpServlet {
 			
 			
 		} catch (FileUploadException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
