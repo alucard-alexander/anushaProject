@@ -7,84 +7,78 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="css/InputBox.css">
+<link rel="stylesheet" href="css/HomeHeader.css">
+<link rel="stylesheet" href="css/InputBox.css">
+<link rel="stylesheet" href="css/itemsuser.css">
+<link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/RadioButton.css">
 
-<!-- start -->
+<style type="text/css">
+.cen {
+	padding-top: 5%;
+	justify-content: center;
+	display: flex;
+	max-width: 100%;
+	padding-bottom: 10px;
+}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+.cen1 {
 
-<!--  -->
+	
+	/*
+	border: 2px solid #A8EB12;
+	border-radius: 10px; */
+}
+
+.space1 {
+	width: 80px;
+}
+</style>
 
 </head>
-<body class="centered" id="imageFullFit" style="background-image: url('systemImages/address1.jpg');">
-	<form action="userRegistration.do" method="post" class="container">>
+<body class="centered" id="imageFullFit"
+	style="background-image: url('systemImages/address1.jpg'); background-size: cover;">
+	<form action="userRegistration.do" method="post" class="container">
 		
-		<div class="row" >
-			<div class="col" style="margin: 10px 30%  20px">
-				<h1>Address Registration</h1>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
+		<div class="cen">
+			<div class="cen1">
+				 <div style="font-size: 20px; justify-content: center; display: flex;">
+					<h1>Sign up</h1>
+				</div> 
+
+
 				<input class="text1" name="dno" placeholder="Enter Door Number">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
-				<input class="text1" name="area" placeholder="Enter Area">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
+
+				<input class="text1" name="area" placeholder="Enter Area"> 
 				<input class="text1" name="state" placeholder="Enter State">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
 				<input class="text1" name="landmark" placeholder="Enter Lanbdmark">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
-				<input class="text1" name="pincode" min="6" max="6" placeholder="Enter pincode">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
-				<input class="text1" name="street" placeholder="Enter street">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
+
+				<input class="text1" name="pincode" min="6" max="6"	placeholder="Enter pincode">
+				<input class="text1" name="street" placeholder="Enter street"> 
 				<input class="text1" name="city" placeholder="enter city">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col">
-				<div style="margin: 10px 30%  20px">
-					<input type="submit" value="Register" class="btn btn-success">
+				
+				<div style="display: flex; margin: 5px;">
+					<input type="submit" class="normal" value="Register" style="margin-right: 10px;"> 
+					<input type="Reset"	class="opposite" value="Reset">
 				</div>
 			</div>
 		</div>
-					<input type="hidden" name="fname" value=<%=request.getParameter("fname")%>>
-					<input type="hidden" name="mname" value=<%=request.getParameter("mname") %>>
-					<input type="hidden" name="lname" value=<%=request.getParameter("lname")%>>
-					<input type="hidden" name="dob" value=<%=request.getParameter("dob") %>>
-					<input type="hidden" name="uname" value=<%=request.getParameter("uname") %>>
-					<input type="hidden" name="pass" value=<%=request.getParameter("pass") %>>
-					<input type="hidden" name="gender" value=<%=request.getParameter("gender") %>>
-					<input type="hidden" name="email" value=<%=request.getParameter("email") %>>
-					<input type="hidden" name="phno" value=<%=request.getParameter("phno") %>>
+			<input type="hidden" name="fname"
+				value=<%=request.getParameter("fname")%>> <input
+				type="hidden" name="mname" value=<%=request.getParameter("mname")%>>
+			<input type="hidden" name="lname"
+				value=<%=request.getParameter("lname")%>> <input
+				type="hidden" name="dob" value=<%=request.getParameter("dob")%>>
+			<input type="hidden" name="uname"
+				value=<%=request.getParameter("uname")%>> <input
+				type="hidden" name="pass" value=<%=request.getParameter("pass")%>>
+			<input type="hidden" name="gender"
+				value=<%=request.getParameter("gender")%>> <input
+				type="hidden" name="email" value=<%=request.getParameter("email")%>>
+			<input type="hidden" name="phno"
+				value=<%=request.getParameter("phno")%>>
+
+		
 	</form>
 </body>
 

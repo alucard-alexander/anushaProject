@@ -9,28 +9,30 @@
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/itemsuser.css">
 <link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/RadioButton.css">
+
 <style type="text/css">
 
-.cen123{
-	
+.cen{
+	padding-top:5%;
 	justify-content: center;
 	display: flex;
-	min-height: 100vh;
-	overflow: hidden;
+	max-width: 100%;
+	padding-bottom: 10px;
 }
 
-.check123{
-	margin: 15%;
-	padding: 10px;
-	background-color:red;
+.cen1{
+	
 	justify-content: center;
-	height: 100%;
-
 	display: grid;
+	width: 50%;
+	border: 2px solid #A8EB12;
+	border-radius: 10px;
+	
 }
 
-.spacing{
-	margin: 10px;
+.space1{
+	width: 80px;
 }
 
 </style>
@@ -65,13 +67,15 @@ function number1(){
 
 
 </head>
-<body style="background-image: url('systemImages/UserLogin1.jpg');">
+<body style="background-image: url('systemImages/UserLogin1.jpg');background-size: cover;">
 	<form action="address.jsp" method="post">
-	<div class="cen123">
-		<div class="check123">
-			<h1>Sign up</h1>
+	<div class="cen">
+		<div class="cen1">
+			<div style="font-size: 20px;justify-content: center;display: flex;">
+				<h1>Sign up</h1>
+			</div>
 		
-			<input class="text1 spacing" name="fname" placeholder="Enter First name" id="fname" onkeyup="notANumber()">
+			<input class="text1" name="fname" placeholder="Enter First name" id="fname" onkeyup="notANumber()">
 		
 			<input class="text1" name="mname" placeholder="Enter middle name" id="mname">
 		
@@ -82,16 +86,19 @@ function number1(){
 			<input class="text1" name="uname" placeholder="Please enter the user name" id="uname">
 		
 			<input type="password" class="text1" name="pass" placeholder="Please enter the password" id="pass">
-		
-			<input  type="radio" name="gender" value="male">Male
-		
-			<input  type="radio" name="gender" value="female">Female
-		
+			<div style="display: flex;left: 10px;">
+				<div style="margin-left: 10px;margin-right: 20px;">
+					<input  type="radio" name="gender" value="male" class="form-radio"><label style="top:30em">Male</label>
+				</div>
+				<div>
+					<input  type="radio" name="gender" value="female" class="form-radio"><label style="top:30em">Female</label>
+				</div>
+			</div>
 			<input class="text1" name="email" type="email" id="email" placeholder="Please enter the email address">
 		
 			<input class="text1" name="phno" min="10" max="10" placeholder="Please enter the phone number" id="phno" onkeyup="number1()">
 			<div style="display: flex; margin: 5px;">
-				<input  type="submit" class="normal" value="Register">
+				<input  type="submit" class="normal" value="Register" style="margin-right: 10px;">
 				<input  type="Reset" class="opposite" value="Reset">
 			</div>
 		</div>
