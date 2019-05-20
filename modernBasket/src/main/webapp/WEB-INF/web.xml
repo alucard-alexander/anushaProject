@@ -94,6 +94,12 @@
   	<description></description>
   	<servlet-class>com.anu.controller.AdminAddItem1</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>userBeforeLoginItem</servlet-name>
+  	<display-name>userBeforeLoginItem</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.userBeforeLoginItem</servlet-class>
+  </servlet>
   
   
   
@@ -152,6 +158,10 @@
   <servlet-mapping>
   	<servlet-name>AdminAddItem1</servlet-name>
   	<url-pattern>/AdminAddItem1.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>userBeforeLoginItem</servlet-name>
+  	<url-pattern>/userBeforeLoginItem.do</url-pattern>
   </servlet-mapping>
   
 </web-app>

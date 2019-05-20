@@ -1,25 +1,13 @@
 package com.anu.bean;
 
 public class Items {
-	String itemName,type,wieght;
-	public String getWieght() {
-		return wieght;
-	}
-	public void setWieght(String wieght) {
-		this.wieght = wieght;
-	}
+	String itemName;
 	int id;
 	public String getItemName() {
 		return itemName;
 	}
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public int getId() {
 		return id;

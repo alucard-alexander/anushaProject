@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
 <link rel="stylesheet" href="css/Buttons.css">
 <link rel="stylesheet" href="css/RadioButton.css">
+<link rel="stylesheet" href="css/myText.css">
+
 
 <style type="text/css">
 .myContainer1 {
@@ -50,6 +51,9 @@
 </style>
 
 <script type="text/javascript">
+
+
+
 function forg(){
 	document.frm.action="UserPasswordReset.jsp";
 	document.frm.submit();
@@ -61,7 +65,7 @@ function forg(){
 </head>
 <body>
 	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)), url('systemImages/login.jpg') center no-repeat; background-size: cover">
+		style="background: linear-gradient(225deg, #764ba2,#a1c4fd);">
 		<div class="container">
 			<nav>
 				<h1 class="brand">
@@ -70,8 +74,7 @@ function forg(){
 				</h1>
 				<ul>
 					<li><a href="Login.jsp">Log in</a></li>
-					<li><a href="UserRegistration.jsp">Register</a></li>
-					<li><a href="UserHomePage.jsp">Items List</a></li>		
+					<li><a href="UserRegistration.jsp">Register</a></li>		
 					<li><a href="">About Us</a></li>
 					<li><a href="">Contact Us</a></li>
 					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
@@ -79,6 +82,9 @@ function forg(){
 			</nav>
 		</div> 
 	</header>
+	<%System.out.println();%>
+	
+	
 	<%
 		if (session.getAttribute("msg") != null) {
 		String msg = session.getAttribute("msg").toString();
@@ -94,18 +100,18 @@ function forg(){
 		}
 	%>
 	<form action="Login.do" method="post" name="frm">
-		<div class="myContainer1">
-			<div class="myText">Login</div>
+		<div class="myContainer1"> 
+			<div class="myText" style="justify-content: center;">Login</div>
 			<br> 
 			<input type="text" class="text1" name="uname" placeholder="User Name"><br>
 			<input type="password" class="text1" name="pass" placeholder="password"><br>
 			<div class="myContainer2">
-				<input type="submit" class="normal" Value="Log In"> 
-				<input type="reset" class="opposite">
-				
+				<input type="hidden" value=<%=request.getParameter("id")%> name="id">
+				<input type="submit" class="btnGreen" Value="Log In"> 
+				<input type="reset" class="btnGreen">
 			</div>
 			<div class="myContainer2">
-				<input type="button" class="normal" value="Forgot Password" onclick="forg()">
+				<input type="button" class="btnGreen" value="Forgot Password" onclick="forg()">
 			</div>
 		</div>
 	</form>

@@ -1,6 +1,8 @@
 package com.anu.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,14 @@ public class Login extends HttpServlet {
 			if (request.getParameter("pass").equals(strPass1[0])) {
 				session.setAttribute("id", Integer.parseInt(strPass1[1]));
 				session.setAttribute("msg", "Logged in successfully");
+				System.out.println(request.getParameter("id"));
+				if (request.getParameter("id") != null) {
+					
+					int iid = Integer.parseInt(request.getParameter("id"));
+					request.setAttribute("id", iid);
+					RequestDispatcher rd = request.getRequestDispatcher("Calculation.jsp");
+					rd.forward(request, response);
+				}
 				response.sendRedirect("UserHomePage.jsp");
 			} else {
 				session.setAttribute("msg", "Invalid Password");

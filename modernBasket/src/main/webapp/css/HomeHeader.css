@@ -14,10 +14,11 @@
 
 body{
 	overflow-x: hidden;
+
 }
 
 html {
-	font-size: 7px;
+	font-size: 10px;
 	font-family: "Roboto Cn", sans-serif;
 }
 
@@ -28,8 +29,7 @@ a {
 
 header {
 	width: 100%;
-	height: 300vh;
-	overflow: hidden;
+	height: 100vh;
 }
 
 .container1 {
@@ -53,6 +53,7 @@ nav {
 	font-weight: 300;
 	transform: translateX(-100rem);
 	animation: slideIn .5s forwards;
+	margin-bottom: 20px;
 }
 
 .brand span {
@@ -67,6 +68,8 @@ nav ul li {
 	list-style: none;
 	transform: translateX(+200rem);
 	animation: slideIn .5s forwards;
+	
+	
 }
 
 nav ul li:nth-child(1){

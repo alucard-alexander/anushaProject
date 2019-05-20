@@ -1,46 +1,66 @@
 @charset "ISO-8859-1";
 
-.normal {
-	width: 160px;
-	border-radius: 5px;
-	height: 30px;
- 	transition:all 3s ease-in-out;
+.btnGreen{
+	background: none;
+	color: #ccc;
+	width: 180px;
+	height: 40px;
+	border: 1px solid #00ff88;
+	font-size: 18px;
+	border-radius: 4px;
+	transition: .6s;
+	overflow: hidden;
+	margin: 20px;	
+} 
+
+.btnGreen:focus{
+	outline: none;
 }
 
-.normal:hover {
-	
-	animation: est 2s;
-	/*background: linear-gradient(to right, #a8c0ff, #3f2b96);*/
-	/*background: green;*/	
-	
+.btnGreen:before{
+	content:'';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.5);
+	width: 60px;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: .5s;
+	filter: blur(30px);
+	transform: translateX(-130px) skew(-15deg);
 }
 
-.opposite {
-	width: 160px;
-	border-radius: 5px;
-	height: 30px;
-	transition-duration: 2.5s;
+.btnGreen:after{
+	content: '';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.2);
+	width: 30px;
+	height: 100%;
+	left: 30px;
+	top: 0;
+	opacity: 0;
+	filter: blur(30px);
+	transform: translate(-100px) scaleX(-15deg);
 }
 
-.opposite:hover {
-	animation: est1 2s;
-	
+.btnGreen:hover {
+		background: #00ff88;
+		cursor: pointer;
+		color: black;
 }
 
-@keyframes est{
-	from{
-	}
-	to{
-		background: linear-gradient(to right, #a8c0ff, #3f2b96);	
-	}
-	
+.btnGreen:hover:before{
+	transform: translateX(300px) skewX(-15deg);
+	opacity: .6;
+	transition: .7s;
 }
 
-@keyframes est1{
-	from{
-	}
-	to{
-		background: linear-gradient(to right,#3f2b96, #a8c0ff);
-	}
-	
+.btnGreen:hover:after{
+	transform: translateX(300px) skew(-15deg);
+	opacity: 1;
+	transition: .7s;
 }
+
+
