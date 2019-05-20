@@ -9,7 +9,7 @@
 
 .normal:hover {
 	
-	animation: test 2s;
+	animation: est 2s;
 	/*background: linear-gradient(to right, #a8c0ff, #3f2b96);*/
 	/*background: green;*/	
 	
@@ -27,7 +27,7 @@
 	
 }
 
-@keyframes test{
+@keyframes est{
 	from{
 	}
 	to{

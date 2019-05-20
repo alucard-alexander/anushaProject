@@ -88,10 +88,10 @@ function number1(){
 			<input type="password" class="text1" name="pass" placeholder="Please enter the password" id="pass">
 			<div style="display: flex;left: 10px;">
 				<div style="margin-left: 10px;margin-right: 20px;">
-					<input  type="radio" name="gender" value="male" class="form-radio"><label style="top:30em">Male</label>
+					<input  type="radio" name="gender" value="male" class="form-radio"><label style="top:30em" class="label1">Male</label>
 				</div>
 				<div>
-					<input  type="radio" name="gender" value="female" class="form-radio"><label style="top:30em">Female</label>
+					<input  type="radio" name="gender" value="female" class="form-radio"><label style="top:30em" class="label1">Female</label>
 				</div>
 			</div>
 			<input class="text1" name="email" type="email" id="email" placeholder="Please enter the email address">

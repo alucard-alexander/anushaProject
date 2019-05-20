@@ -17,7 +17,7 @@ body{
 }
 
 html {
-	font-size: 7px;
+	font-size: 10px;
 	font-family: "Roboto Cn", sans-serif;
 }
 
@@ -28,7 +28,8 @@ a {
 
 header {
 	width: 100%;
-	height: 100vh;
+	height: 300vh;
+	overflow: hidden;
 }
 
 .container1 {
@@ -64,7 +65,7 @@ nav ul {
 
 nav ul li {
 	list-style: none;
-	transform: translateX(+100rem);
+	transform: translateX(+200rem);
 	animation: slideIn .5s forwards;
 }
 

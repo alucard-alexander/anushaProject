@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
+<link rel="stylesheet" href="css/itemsuser.css">
+<link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/RadioButton.css">
 
 <style type="text/css">
 .myContainer1 {
@@ -94,15 +97,15 @@ function forg(){
 		<div class="myContainer1">
 			<div class="myText">Login</div>
 			<br> 
-			<input type="text" class="input2" name="uname" placeholder="User Name"><br>
-			<input type="password" class="input2" name="pass" placeholder="password"><br>
+			<input type="text" class="text1" name="uname" placeholder="User Name"><br>
+			<input type="password" class="text1" name="pass" placeholder="password"><br>
 			<div class="myContainer2">
-				<input type="submit" class="but" Value="Log In"> 
-				<input type="reset" class="but">
+				<input type="submit" class="normal" Value="Log In"> 
+				<input type="reset" class="opposite">
 				
 			</div>
 			<div class="myContainer2">
-				<input type="button" class="but" value="Forgot Password" onclick="forg()">
+				<input type="button" class="normal" value="Forgot Password" onclick="forg()">
 			</div>
 		</div>
 	</form>

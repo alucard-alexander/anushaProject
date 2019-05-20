@@ -123,7 +123,7 @@
 	%>
 	<form action="" method="post" name="frm">
 		<div class="myContainer1">
-			<div class="myText" style="font-size: 70px;">Login</div>
+			<div class="myText" style="font-size: 70px;color: white;">Login</div>
 			<br>
 			<div style="display: flex;" class="c">
 				<input type="checkbox" value="admin" id="chec" onclick="change()"

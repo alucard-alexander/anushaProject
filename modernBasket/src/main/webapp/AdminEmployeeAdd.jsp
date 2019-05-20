@@ -10,20 +10,38 @@
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/itemsuser.css">
+<link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/RadioButton.css">
+
+<!-- 
+<link rel="stylesheet" href="css/HomeHeader.css">
+<link rel="stylesheet" href="css/InputBox.css">
+<link rel="stylesheet" href="css/itemsuser.css">
+ -->
 </head>
 
 <style type="text/css">
-
-
-.cen123{
-	justify-content: center;
-	display: grid;
-	
-	margin: 15px;
-	max-width: 80%;
+body {
+	left: 30%;
 }
 
-.check123{
+.cen {
+	padding-top: 5%;
+	justify-content: center;
+	display: flex;
+	max-width: 100%;
+	padding-bottom: 10px;
+}
+
+.cen1 {
+	justify-content: center;
+	display: grid;
+	width: 50%;
+	border: 2px solid #A8EB12;
+	border-radius: 10px;
+}
+
+.check123 {
 	background-color: green;
 	padding: 10px;
 	width: 100%;
@@ -58,11 +76,41 @@
 	color: black;
 }
 
-.cen {
-	justify-content: center;
-	display: flex;
-}
+{
+	/*background-color: green;*/
+	 
+	background-color :
+	#EF5353 ; color
+	.mod
 
+{
+	/*background-color: green;*/
+	 
+	background-color :
+	#EF5353 ; color
+	: black; }
+	.mod
+
+{
+color
+:
+#EFEA53;
+border
+:
+2px
+solid
+#EFEA53;
+}
+.mod
+:hover
+{
+background-color
+:
+#EFEA53;
+color
+:
+black;
+}
 table {
 	top: 30%;
 	width: 100%;
@@ -156,48 +204,43 @@ th:last-child {
 		}
 	%>
 
-<body class="centered" id="imageFullFit"
-	style="background-image: url('systemImages/UserLogin1.jpg');">
-	<form action="AdminAddressAdd.jsp" method="post" class="container">
-<div class="cen123">
-		<div class="check123">
-				<h1>Sign up</h1>
-</div>
-		<div class="check123">
+<body style="background-image: url('systemImages/UserLogin1.jpg');">
+	<form action="AdminAddressAdd.jsp" method="post">
+		<div class="cen">
+			<div class="cen1">
+				<div class="ceck1234">
+					<h1>Employee Sign up</h1>
+				</div>
+
 				<input class="text1" name="fname" placeholder="Enter First name">
-</div>
-		<div class="check123">
+
+
 				<input class="text1" name="mname" placeholder="Enter middle name">
-</div>
-		<div class="check123">
+
+
 				<input class="text1" name="lname" placeholder="Enter last name">
-</div>
-		<div class="check123">
-				<input class="text1" type="date" name="dob">
-</div>
-		<div class="check123">
-				<input class="text1" name="uname" placeholder="Please enter the user name">
-</div>
-		<div class="check123">
-				<input type="password" class="text1" name="pass" placeholder="Please enter the password">
-</div>
-		<div class="check123">
-				<input type="radio" name="gender" value="male">Male <input
-					type="radio" name="gender" value="female">Female
-</div>
-		<div class="check123">
-				<input class="text1" name="email" type="email"
-					placeholder="Please enter the email address">
-</div>
-		<div class="check123">
-				<input class="text1" name="phno" min="10" max="10"
-					placeholder="Please enter the phone number">
-</div>
-		<div class="check123">
-				
-					<input type="submit" value="Register">
-</div>
-		
+
+
+				<input class="text1" type="date" name="dob"> <input
+					class="text1" name="uname" placeholder="Please enter the user name">
+
+
+				<input type="password" class="text1" name="pass"
+					placeholder="Please enter the password"> 
+					
+					<div style="display: flex;left: 10px;">
+						<div style="margin-left: 10px;margin-right: 20px;">
+							<input type="radio" name="gender" value="male" class="form-radio"><label style="top:30em" class="label1"> Male</label>
+						</div>
+						<div> 
+							<input type="radio" name="gender" value="female" class="form-radio"><label style="top:30em" class="label1"> Female </label>
+						</div>
+					</div>
+					<input class="text1" name="email" type="email" placeholder="Please enter the email address"> 
+					<input class="text1" name="phno" min="10" max="10" placeholder="Please enter the phone number"> 
+					<input type="submit" value="Register" class="normal">
+			</div>
+		</div>
 	</form>
 </body>
 
