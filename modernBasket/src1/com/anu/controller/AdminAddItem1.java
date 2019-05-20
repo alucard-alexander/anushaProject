@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -24,6 +25,7 @@ public class AdminAddItem1 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
+		HttpSession session= request.getSession();
 		Items item = new Items();
 		String[] str = new String[2];
 		String[]  value = new String[2];
@@ -42,7 +44,9 @@ public class AdminAddItem1 extends HttpServlet {
 			if (iid>0) {
 				for(FileItem Fitem: multiFiles) {
 					if (!Fitem.isFormField()) {
-						Fitem.write(new File("E:\\Anusha mini project\\git\\anushaProject\\modernBasket\\src\\main\\webapp\\itemsimages\\"+iid+".jpg"));
+						Fitem.write(new File("F:\\git\\anushaProject\\modernBasket\\src\\main\\webapp\\itemsimages\\"+iid+".jpg"));
+						session.setAttribute("msg", "Item added successfully");
+						response.sendRedirect("Admin.jsp");
 					}
 				}
 			}

@@ -29,7 +29,7 @@ public class UpdateOrder extends HttpServlet {
 		o1.setItem_id(Integer.parseInt(sesssion.getAttribute("item_id").toString()));
 		o1.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 		price = price * (Integer.parseInt(request.getParameter("quantity")));
-		Double per = 0.1 * price;
+		Double per = 0.02 * price;
 		price += per;
 		o1.setTotal_price(price);
 		o1.setId(Integer.parseInt(session.getAttribute("oid").toString()));

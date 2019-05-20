@@ -146,7 +146,7 @@ function delete1(id){
 				<td colspan="7" style="border: transparent; height: 50px;">
 					<div
 						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
-						<label style="font-size: 30px;">Pending</label>
+						<label style="font-size: 30px;">Delivered</label>
 					</div>
 				</td>
 			</tr>

@@ -167,7 +167,7 @@ th:last-child {
 				<td><%=o1.getItems_name().toUpperCase()%></td>
 				<td><%=o1.getQuantity()%></td>
 				<td><%=o1.getPrice()%></td>
-				<td>10%</td>
+				<td>2%</td>
 				<td><%=o1.getTotal_price()%></td>
 
 				<td><%=o1.getStatus()%></td>

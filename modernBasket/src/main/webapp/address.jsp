@@ -47,15 +47,15 @@
 				</div> 
 
 
-				<input class="text1" name="dno" placeholder="Enter Door Number">
+				<input class="text1" name="dno" placeholder="Enter Door Number" required>
 
-				<input class="text1" name="area" placeholder="Enter Area"> 
-				<input class="text1" name="state" placeholder="Enter State">
-				<input class="text1" name="landmark" placeholder="Enter Lanbdmark">
+				<input class="text1" name="area" placeholder="Enter Area" required> 
+				<input class="text1" name="state" placeholder="Enter State" required>
+				<input class="text1" name="landmark" placeholder="Enter Lanbdmark" required>
 
-				<input class="text1" name="pincode" min="6" max="6"	placeholder="Enter pincode">
-				<input class="text1" name="street" placeholder="Enter street"> 
-				<input class="text1" name="city" placeholder="enter city">
+				<input class="text1" name="pincode" min="6" max="6"	placeholder="Enter pincode" required>
+				<input class="text1" name="street" placeholder="Enter street" required> 
+				<input class="text1" name="city" placeholder="enter city" required>
 				
 				<div style="display: flex; margin: 5px;">
 					<input type="submit" class="normal" value="Register" style="margin-right: 10px;"> 

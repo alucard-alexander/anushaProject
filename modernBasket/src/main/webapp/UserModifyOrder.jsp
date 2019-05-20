@@ -56,7 +56,7 @@ label {
 		var d=parseFloat(document.getElementById('pri').textContent);
 		var e=parseInt(document.getElementById('quantity').value);
 		var f=d*e;
-		f=(0.1*f)+f;
+		f=(0.02*f)+f;
 		document.getElementById('tpr').innerText= f;
 		document.getElementById('sub').focus;
 		
@@ -132,7 +132,7 @@ label {
 							name="quantity" id="quantity" onblur="cal()">
 					</div>
 					<div>
-						<label style="margin-right: 30px;"><b>GST:</b></label><label>10%</label>
+						<label style="margin-right: 30px;"><b>GST:</b></label><label>2%</label>
 					</div>
 					<div>
 						<label><b>Total Cost:</b></label><label id="tpr"></label>

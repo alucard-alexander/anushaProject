@@ -130,6 +130,7 @@ th:last-child {
 				<ul>
 					<li><a href="Admin.jsp">Ordered List </a></li>
 					<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
+					<li><a href="AdminAddItem.jsp">Add item</a></li>
 					<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
 					<li><a href="Logout.do">Logout</a></li>
 				</ul>

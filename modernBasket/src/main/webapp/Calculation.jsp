@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/itemsuser.css">
+<link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/RadioButton.css">
 
 
 <style type="text/css">
@@ -56,7 +58,7 @@ label {
 		var d=parseFloat(document.getElementById('pri').textContent);
 		var e=parseInt(document.getElementById('quantity').value);
 		var f=d*e;
-		f=(0.1*f)+f;
+		f=(0.02*f)+f;
 		document.getElementById('tpr').innerText= f;
 		document.getElementById('sub').focus;
 		
@@ -130,10 +132,10 @@ label {
 					</div>
 					<div>
 						<label><b>Quantity:</b></label><input type="number" 
-							name="quantity" id="quantity" onblur="cal()">
+							name="quantity" id="quantity" onblur="cal()" class="text1" required>
 					</div>
 					<div>
-						<label style="margin-right: 30px;"><b>GST:</b></label><label>10%</label>
+						<label style="margin-right: 30px;"><b>GST:</b></label><label>2%</label>
 					</div>
 					<div>
 						<label><b>Total Cost:</b></label><label id="tpr"></label>
