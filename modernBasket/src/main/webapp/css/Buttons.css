@@ -13,7 +13,7 @@
 	transition: .6s;
 	overflow: hidden;
 	margin: 20px;	
-	color: black;
+	
 } 
 
 .btnGreen:focus{
@@ -84,7 +84,7 @@
 	transition: .6s;
 	overflow: hidden;
 	margin: 20px;	
-	color: black;
+
 } 
 
 .btnItem:focus{
