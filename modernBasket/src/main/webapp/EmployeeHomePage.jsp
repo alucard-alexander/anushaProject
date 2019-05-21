@@ -7,85 +7,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/HomeHeader.css">
-<link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
+<%@ include file="Headings.jsp"%>
 </head>
 
 <style type="text/css">
-.but {
-	border-radius: 10px;
-	font-size: 15px;
-	background: transparent;
-	width: 100px;
-	height: 30px;
-}
-
-.can {
-	color: #EF5353;
-	border: 2px solid #EF5353
-}
-
-.can:hover {
-	/*background-color: green;*/
-	background-color: #EF5353;
-	color: black;
-}
-
-.mod {
-	color: #EFEA53;
-	border: 2px solid #EFEA53;
-}
-
-.mod:hover {
-	background-color: #EFEA53;
-	color: black;
-}
-
-.cen {
-	justify-content: center;
+.cen .cen1 {
+	position: relative;
+	margin: 10%;
+	box-sizing: border-box;
 	display: flex;
+	height: auto;
+	width: auto;
+	max-height: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 20px;
+	width: 40%;
+	border: 2px solid #A8EB12;
+	border-radius: 10px;
 }
 
-table {
-	top: 30%;
-	width: 100%;
-	max-width: 90%;
-	position: absolute;
-	text-align: center;
-	border-collapse: collapse;
+.cen .cen1 .imgleft {
+	margin: 10px;
+	margin-right: 30px;
 }
 
-th:first-child {
-	border-left: transparent;
+.cen .cen1 .contenets1 {
+	margin: 10px;
+	margin-left: 30px;
 }
 
-th:last-child {
-	border-right: transparent;
-}
-
-th {
-	background: linear-gradient(black, gray);
-	color: white;
-	border: 1px solid #080808;
-	border-top-color: transparent;
-	font-size: 15px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-td {
-	font-size: 20px;
-	border: 1px solid #080808;
-	padding: 10px;
-}
-
-th:first-child {
-	border-top-left-radius: 25px;
-}
-
-th:last-child {
-	border-top-right-radius: 25px;
+.cen1 .imgleft img {
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+	height: 300px;
 }
 </style>
 
@@ -118,130 +74,78 @@ th:last-child {
 			System.out.println("Testing");
 			response.sendRedirect("AdministratorLogin.jsp");
 		} else {
-	%>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)); height: 100%;">
-		<div class="container1">
-			<nav>
-				<h2 class="brand">
-					<a href="Index.jsp">Modern <span>B</span>asket
-					</a>
-				</h2>
-				<ul>
-					<li><a href="EmployeeHomePage.jsp">Ordered List </a></li>
-					<li><a href="Logout.do">Logout</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<%
-		if (session.getAttribute("msg") != null) {
-		String msg = session.getAttribute("msg").toString();
-		session.removeAttribute("msg");
-		//String msg = "Logged in properly";
+			if (session.getAttribute("msg") != null) {
+				String msg = session.getAttribute("msg").toString();
+				session.removeAttribute("msg");
+				//String msg = "Logged in properly";
 	%>
 	<div class="cen111">
-		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+		<div
+			style="color: green; top: 20%; position: absolute; font-size: 25px;">
 			<h3><%=msg%></h3>
 		</div>
 	</div>
 	<%
 		}
 	%>
+	
+	<div class="myTextHeadings" style="justify-content: center; left: 30%; font-size: 50px;top:20%;;position: absolute;">Pending List</div>
+	
 	<div class="cen">
-		<table style="top: 25%">
-			<tr>
-				<td colspan="7" style="border: transparent; height: 50px;">
-					<div
-						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
-						<label style="font-size: 30px;">Pending</label>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th><h1>ITEM NAME</h1></th>
-				<th><h1>QUANTITY</h1></th>
-				<th><h1>PRICE</h1></th>
-				<th><h1>GST</h1></th>
-				<th><h1>TOTAL PRICE</h1></th>
-				<th><h1>STATUS</h1></th>
-				<th><h1>UPDATE</h1></th>
-			</tr>
-			<%
-				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
-					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("pending")) {
-			%>
-			<tr>
-				<td><%=o1.getItems_name().toUpperCase()%></td>
-				<td><%=o1.getQuantity()%></td>
-				<td><%=o1.getPrice()%></td>
-				<td>10%</td>
-				<td><%=o1.getTotal_price()%></td>
+		<%
+			//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
+				for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("pending")) {
+		%>
 
-				<td><%=o1.getStatus()%></td>
+		<div class="cen1">
+
+			<div class="imgleft">
+				<img src="itemsimages/<%=o1.getItem_id()%>.jpg">
+			</div>
+
+
+			<div class="contents1">
+
+				<div class="myTextNormal">
+					<b>ITEM NAME:</b>
+					<%=o1.getItems_name().toUpperCase()%>
+				</div>
+				<div class="myTextNormal">
+					<b>QUANTITY:</b><%=o1.getQuantity()%>
+				</div>
+				<div class="myTextNormal">
+					<b>PRICE:</b><%=o1.getPrice()%>
+				</div>
+				<div class="myTextNormal">
+					<b>GST:</b>2%
+				</div>
+				<div class="myTextNormal">
+					<b>TOTAL PRICE:</b><%=o1.getTotal_price()%>
+				</div>
+				<div class="myTextNormal">
+					<b>STATUS:</b><%=o1.getStatus()%>
+				</div>
+
+
 				<form name="frm<%=o1.getOrder_id()%>" method="post">
 					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
 					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
-					<td>
-						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
-						<input type="button" class="but" value="Process.." onclick="process(<%=o1.getOrder_id()%>)">
-					</td>
+					<input type="button" class="btnOrder" value="Details"
+						onclick="details(<%=o1.getOrder_id()%>)"> <input
+						type="button" class="btnOrder" value="Process.."
+						onclick="process(<%=o1.getOrder_id()%>)">
 				</form>
-			</tr>
-			<%
-				}
-			%>
+			</div>
+		</div>
+		<%
+			}
+		%>
 
-			<tr>
-				<td colspan="7" style="border: transparent;">&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="7" style="border: transparent; height: 50px;">
-					<div
-						style="width: 100%; border: 2px solid black; border-radius: 10px; height: 50px; padding-top: 10px;">
-						<label style="font-size: 30px;">Process...</label>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th><h1>ITEM NAME</h1></th>
-				<th><h1>QUANTITY</h1></th>
-				<th><h1>PRICE</h1></th>
-				<th><h1>GST</h1></th>
-				<th><h1>TOTAL PRICE</h1></th>
-				<th><h1>STATUS</h1></th>
-				<th><h1>UPDATE</h1></th>
-			</tr>
-			<%
-				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
-					for (Order_Items o1 : new ViewDAO().getAllUserorderedListPending("processing...")) {
-			%>
-			<tr>
-				<td><%=o1.getItems_name().toUpperCase()%></td>
-				<td><%=o1.getQuantity()%></td>
-				<td><%=o1.getPrice()%></td>
-				<td>10%</td>
-				<td><%=o1.getTotal_price()%></td>
-				<td><%=o1.getStatus()%></td>
-				<form name="frm<%=o1.getOrder_id()%>" method="post">
-					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
-					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
-					<td>
-						<input type="button" class="but" value="Details" onclick="details(<%=o1.getOrder_id()%>)">
-						<input type="button" class="but" value="Delivered" onclick="delivery(<%=o1.getOrder_id()%>)">
-					</td>
-				</form>
-			</tr>
-			<%
-				}
-			%>
-
-
-		</table>
 	</div>
 	<%
 		}
 	%>
+
 </body>
 
 

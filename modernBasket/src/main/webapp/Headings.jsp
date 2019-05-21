@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="css/Buttons.css">
 <link rel="stylesheet" href="css/RadioButton.css">
 <link rel="stylesheet" href="css/myText.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
+
+
 </head>
 <body>
 
@@ -60,8 +65,52 @@
 	</header>
 	
 	<%
-		}
+		}else if(session.getAttribute("type").toString().contentEquals("e")){
 	%>
+		<header
+		style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
+		<div class="container1">
+			<nav>
+				<h2 class="brand">
+					<a href="Index.jsp">Modern <span>B</span>asket
+					</a>
+				</h2>
+				<ul>
+					
+					<li><a href="EmployeeHomePage.jsp">Pending List</a></li>
+					<li><a href="EmployeeProcessingList.jsp">Processing List</a></li>
+					<li><a href="Logout.do">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<%
+		}else if(session.getAttribute("type").toString().contentEquals("a")){
+			%>
+			<header
+			style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
+			<div class="container1">
+				<nav>
+					<h2 class="brand">
+						<a href="Index.jsp">Modern <span>B</span>asket
+						</a>
+					</h2>
+					<ul>
+						
+						<li><a href="EmployeeHomePage.jsp">Pending List</a></li>
+						<li><a href="EmployeeProcessingList.jsp">Processing List</a></li>
+						<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
+						<li><a href="AdminAddItem.jsp">Add item</a></li>
+						<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
+						<li><a href="Logout.do">Logout</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<%
+			}
+		%>
+
 
 </body>
 </html>

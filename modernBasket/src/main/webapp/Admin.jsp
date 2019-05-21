@@ -118,27 +118,7 @@ th:last-child {
 			System.out.println("Testing");
 			response.sendRedirect("AdministratorLogin.jsp");
 		} else {
-	%>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)); height: 100%;">
-		<div class="container1">
-			<nav>
-				<h2 class="brand">
-					<a href="Index.jsp">Modern <span>B</span>asket
-					</a>
-				</h2>
-				<ul>
-					<li><a href="Admin.jsp">Ordered List </a></li>
-					<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
-					<li><a href="AdminAddItem.jsp">Add item</a></li>
-					<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
-					<li><a href="Logout.do">Logout</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-
-	<%
+	
 		if (session.getAttribute("msg") != null) {
 				String msg = session.getAttribute("msg").toString();
 				session.removeAttribute("msg");

@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="css/Buttons.css">
 <link rel="stylesheet" href="css/RadioButton.css">
 
+<link rel="stylesheet" href="css/shake.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
+
 <style type="text/css">
 .cen {
 	padding-top: 5%;
@@ -25,41 +29,46 @@
 .cen1 {
 
 	
-	/*
+	justify-content: center;
+	display: grid;
+	width: 50%;
 	border: 2px solid #A8EB12;
-	border-radius: 10px; */
+	border-radius: 10px;
 }
 
 .space1 {
-	width: 80px;
+	width: 500px;
 }
 </style>
 
 </head>
-<body class="centered" id="imageFullFit"
-	style="background-image: url('systemImages/address1.jpg'); background-size: cover;">
-	<form action="userRegistration.do" method="post" class="container">
-		
+<body style="background: linear-gradient(315deg, #764ba2, #a1c4fd);height: 100vh;overflow-y:hidden">
+	<form action="userRegistration.do" method="post" class="">
+		<div style="font-size: 20px; justify-content: center; display: flex;position: absolute;top: 25px;left: 40%">
+					<h1>Address</h1>
+				</div>
 		<div class="cen">
 			<div class="cen1">
-				 <div style="font-size: 20px; justify-content: center; display: flex;">
-					<h1>Sign up</h1>
-				</div> 
+				  
+				<h2 style="color: red; text-align: center;font-size: 20px;"></h2>
 
+				<input class="text1 space1" name="dno" id="dno" placeholder="Enter Door Number" required>
 
-				<input class="text1" name="dno" placeholder="Enter Door Number" required>
+				<input class="text1 space1" name="area" id="area" placeholder="Enter Area" required> 
+				
+				<input class="text1 space1" name="state" id="state" placeholder="Enter State" required>
+				
+				<input class="text1 space1" name="landmark" id="landmark" placeholder="Enter Lanbdmark" required>
 
-				<input class="text1" name="area" placeholder="Enter Area" required> 
-				<input class="text1" name="state" placeholder="Enter State" required>
-				<input class="text1" name="landmark" placeholder="Enter Lanbdmark" required>
-
-				<input class="text1" name="pincode" min="6" max="6"	placeholder="Enter pincode" required>
-				<input class="text1" name="street" placeholder="Enter street" required> 
-				<input class="text1" name="city" placeholder="enter city" required>
+				<input class="text1 space1" name="pincode" id="pincode" min="6" max="6"	placeholder="Enter pincode" required>
+				
+				<input class="text1 space1" name="street" id="street" placeholder="Enter street" required>
+				 
+				<input class="text1 space1" name="city" id="city" placeholder="enter city" required>
 				
 				<div style="display: flex; margin: 5px;">
-					<input type="submit" class="normal" value="Register" style="margin-right: 10px;"> 
-					<input type="Reset"	class="opposite" value="Reset">
+					<input type="submit" class="btnGreen" value="Register" id="clickhere2" style="margin-right: 10px;"> 
+					<input type="Reset"	class="btnGreen" value="Reset">
 				</div>
 			</div>
 		</div>

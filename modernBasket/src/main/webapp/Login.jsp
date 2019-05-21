@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="css/Buttons.css">
 <link rel="stylesheet" href="css/RadioButton.css">
 <link rel="stylesheet" href="css/myText.css">
-
+<link rel="stylesheet" href="css/shake.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
 
 <style type="text/css">
 .myContainer1 {
@@ -27,25 +29,6 @@
 	justify-content: space-around;
 }
 
-.but1 {
-	max-width: 40%;
-	width: 30%;
-	margin-top: 10px;
-	background-color: #c7e8be;
-	color: black;
-}
-
-.but1:hover, .but2:hover {
-	color: white;
-	background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .6))
-}
-
-.but2 {
-	max-width: 40%;
-	width: 30%;
-	margin-top: 10px;
-	background-color: yellow;
-}
 
 
 </style>
@@ -101,16 +84,17 @@ function forg(){
 		<div class="myContainer1"> 
 			<div class="myTextHeadings" style="justify-content: center;">Login</div>
 			<br> 
-			<input type="text" class="text1" name="uname" placeholder="User Name"><br>
+			<h2></h2>
+			<input type="text" class="text1" name="uname" id="uname" placeholder="User Name"><br>
 			<%System.out.println(request.getParameter("id"));%>
-			<input type="password" class="text1" name="pass" placeholder="password"><br>
+			<input type="password" class="text1" name="pass" id="pass" placeholder="password"><br>
 			<div class="myContainer2">
 				<input type="hidden" value=<%=request.getParameter("id")%> name="iid">
-				<input type="submit" class="btnGreen" Value="Log In"> 
+				<input type="submit" class="btnGreen" Value="Log In" id="clickhere"> 
 				<input type="reset" class="btnGreen">
 			</div>
 			<div class="myContainer2">
-				<input type="button" class="btnGreen" value="Forgot Password" onclick="forg()">
+				<input type="button" class="btnGreen" value="Forgot Password"  onclick="forg()">
 			</div>
 		</div>
 	</form>

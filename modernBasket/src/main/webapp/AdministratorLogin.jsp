@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/CheckBoxDesign.css">
 <link rel="stylesheet" href="css/Buttons.css">
+<link rel="stylesheet" href="css/shake.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
 
 <style type="text/css">
 
@@ -39,41 +42,13 @@
 		}
 	}
 
-	function fun() {
-		if (document.getElementById("chec").checked) {
-			var uname = document.frm.uname.value;
-			var pass = document.frm.pass.value;
-			if (uname == "") {
-				alert("Sorry, username should be entered")
-				document.frm.uname.focus();
-			} else if (pass == "") {
-				alert("Sorry, password should be entered")
-				document.frm.pass.focus();
-			} else {
-				document.frm.action = "AdminLogin.do?type=a";
-				document.frm.submit();
-			}
-		} else {
-			var uname = document.frm.uname.value;
-			var pass = document.frm.pass.value;
-			if (uname == "") {
-				alert("Sorry, username should be entered")
-				document.frm.uname.focus();
-			} else if (pass == "") {
-				alert("Sorry, password should be entered")
-				document.frm.pass.focus();
-			} else {
-				document.frm.action = "AdminLogin.do?type=e";
-				document.frm.submit();
-			}
-		}
-	}
+	
 </script>
 
 </head>
 <body>
 	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)), url('systemImages/login.jpg') center no-repeat; background-size: cover">
+		style="background: linear-gradient(225deg, #764ba2,#a1c4fd)">
 		<div class="container">
 			<nav>
 				<h1 class="brand">
@@ -105,7 +80,7 @@
 	<%
 		}
 	%>
-	<form action="" method="post" name="frm">
+	<form action="" method="post" name="frm" id="frm">
 		<div class="myContainer1">
 			<div class="myTextHeadings" style="font-size: 70px;color: white;">Login</div>
 			<br>
@@ -115,11 +90,10 @@
 					style="color: white; margin-left: 40px; font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 5px #13b3ff;"
 					id="check1">Employee</label>
 			</div>
-			<input type="text" class="text1" name="uname" placeholder="User Name"><br> <input
-				type="password" class="text1" name="pass" placeholder="password"><br>
+			<input type="text" class="text1" name="uname" id="uname" placeholder="User Name"><br> <input
+				type="password" class="text1" name="pass" id="pass" placeholder="password"><br>
 			<div class="myContainer2">
-				<input type="button" class="btnGreen" Value="Log In"
-					onclick="fun()"> <input type="reset" class="btnGreen">
+				<input type="button" class="btnGreen" Value="Log In" id="clickhere4"> <input type="reset" class="btnGreen">
 			</div>
 		</div>
 	</form>

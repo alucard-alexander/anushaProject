@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.shaker{
+	-webkit-animation:shakeIt 0.2s linear 2;
+	-moz-animation:shakeIt 0.2s linear 2;
+	-ms-animation:shakeIt 0.2s linear 2;
+	-o-animation:shakeIt 0.3s linear 2;
+	animation:shakeIt 0.3s linear 2;
+	border-color: red;
+}
+
+
+@keyframes shakeIt{
+	0%{transform: translateX(-15px);}
+	25%{transform: translateX(15px);}	
+	50%{transform: translateX(-15px);}
+	100%{transform: translateX(0);}
+	
+}
