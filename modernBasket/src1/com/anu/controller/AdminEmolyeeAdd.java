@@ -48,7 +48,7 @@ public class AdminEmolyeeAdd extends HttpServlet {
 			if (k > 0) {
 				HttpSession session = request.getSession();
 				session.setAttribute("id", k);
-				response.sendRedirect("UserQuestion.jsp");
+				response.sendRedirect("EmployeeHomePage.jsp");
 			}
 		}
 	}

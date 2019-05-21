@@ -5,9 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/HomeHeader.css">
-<link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
+<%@ include file="Headings.jsp"%>
 </head>
 
 <style type="text/css">
@@ -103,8 +101,6 @@ th:last-child {
 		document.frm.action = 'ItemAdd.do?iname='+iname+'&iprice='+iprice;
 		document.frm.submit();
 	}*/
-
-	
 </script>
 
 
@@ -114,27 +110,7 @@ th:last-child {
 			System.out.println("Testing");
 			response.sendRedirect("AdministratorLogin.jsp");
 		} else {
-	%>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
-		<div class="container1">
-			<nav>
-				<h2 class="brand">
-					<a href="Index.jsp">Modern <span>B</span>asket
-					</a>
-				</h2>
-				<ul>
-					<li><a href="Admin.jsp">Ordered List </a></li>
-					<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
-					<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
-					<li><a href="Logout.do">Logout</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-
-	<%
-		if (session.getAttribute("msg") != null) {
+			if (session.getAttribute("msg") != null) {
 				String msg = session.getAttribute("msg").toString();
 				session.removeAttribute("msg");
 				//String msg = "Logged in properly";
@@ -152,20 +128,18 @@ th:last-child {
 <body>
 	<div class="cen">
 		<div class="inside">
-			<form action="AdminAddItem1.do" method="post" name="frm" enctype="multipart/form-data">
+			<form action="AdminAddItem1.do" method="post" name="frm"
+				enctype="multipart/form-data">
 				<div>
-					<label>Enter the Item name</label>
-					<input  type="text" name="iname" id="iname">
+					<input type="text" style="width: 500px;" name="iname" id="iname" class="text1" placeholder="Enter the Item name">
 				</div>
 				<div>
-					<label>Enter the Item Price</label>
-					<input  type="text" name="iprice" id="iprice">
+					<input type="text" style="width: 500px;" name="iprice" id="iprice" class="text1" placeholder="Enter the Item Price">
 				</div>
 				<div>
-					<label>Upload File image</label>
-					<input type="file" name="file">
-				</div> 
-				<input type="submit" value="click here" onclick="process()">
+					<label class="myTextNormal">Upload File image:</label> <input type="file" name="file">
+				</div>
+				<input type="submit" class="btnGreen" value="click here" id="clickhere5">
 			</form>
 		</div>
 	</div>

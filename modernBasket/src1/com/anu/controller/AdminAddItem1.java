@@ -44,9 +44,10 @@ public class AdminAddItem1 extends HttpServlet {
 			if (iid>0) {
 				for(FileItem Fitem: multiFiles) {
 					if (!Fitem.isFormField()) {
-						Fitem.write(new File("F:\\git\\anushaProject\\modernBasket\\src\\main\\webapp\\itemsimages\\"+iid+".jpg"));
+						//Fitem.write(new File("F:\\git\\anushaProject\\modernBasket\\src\\main\\webapp\\itemsimages\\"+iid+".jpg"));
+						Fitem.write(new File("E:\\Anusha mini project\\git\\anushaProject\\modernBasket\\src\\main\\webapp\\itemsimages\\"+iid+".jpg"));
 						session.setAttribute("msg", "Item added successfully");
-						response.sendRedirect("Admin.jsp");
+						response.sendRedirect("EmployeeHomePage.jsp");
 					}
 				}
 			}

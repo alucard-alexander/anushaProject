@@ -4,17 +4,17 @@ var p1 = /^[0-9]{6}$/;
 
 function showEmptyError(inputname, msg) {
 	var element = $(inputname).addClass('shaker');
-	$('h2').html(msg);
+	$('h3').html(msg);
 	setTimeout(function() {
 		element.removeClass('shaker');
 	}, 1000);
 }
 
-$(document).on('click', '#clickhere', function() {
-	if ($('#uname').val() == "") {
-		showEmptyError('#uname', 'User Name is empty');
-	} else if ($('#pass').val() == "") {
-		showEmptyError('#pass', 'Password is empty');
+$(document).on('click', '#clickhere5', function() {
+	if ($('#iname').val() == "") {
+		showEmptyError('#iname', 'Item Name is empty');
+	} else if ($('#iprice').val() == "") {
+		showEmptyError('#iprice', 'Item price is empty');
 	} else {
 		return true;
 	}

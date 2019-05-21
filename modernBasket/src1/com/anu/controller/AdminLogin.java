@@ -19,30 +19,33 @@ public class AdminLogin extends HttpServlet {
 
 		String type = request.getParameter("type");
 		String[] strPass1 = null;
-
+		HttpSession session = request.getSession();
 		strPass1 = v1.getEmployeePass(request.getParameter("uname"), type);
 		if (strPass1[1] == "0") {
+			session.setAttribute("msg", "Invalid username and password");
 			response.sendRedirect("AdministratorLogin.jsp");
 		} else {
 			if (type.equals("a")) {
 				if (request.getParameter("pass").equals(strPass1[0])) {
-					HttpSession session = request.getSession();
+					
 					session.setAttribute("id", Integer.parseInt(strPass1[1]));
 					session.setAttribute("type", "a");
 					session.setAttribute("msg", "Logged in successfully");
 					response.sendRedirect("EmployeeHomePage.jsp");
 				} else {
-					response.sendRedirect("Error.jsp");
+					session.setAttribute("msg", "Invalid username and password");
+					response.sendRedirect("AdministratorLogin.jsp");
 				}
 			} else {
 				if (request.getParameter("pass").equals(strPass1[0])) {
-					HttpSession session = request.getSession();
+					
 					session.setAttribute("id", Integer.parseInt(strPass1[1]));
 					session.setAttribute("type", "e");
 					session.setAttribute("msg", "Logged in successfully");
 					response.sendRedirect("EmployeeHomePage.jsp");
 				} else {
-					response.sendRedirect("Error.jsp");
+					session.setAttribute("msg", "Invalid username and password");
+					response.sendRedirect("AdministratorLogin.jsp");
 				}
 			}
 		}
