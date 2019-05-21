@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/CheckBoxDesign.css">
+<link rel="stylesheet" href="css/Buttons.css">
+
 <style type="text/css">
 
 
@@ -25,25 +27,7 @@
 	justify-content: space-around;
 }
 
-.but1 {
-	max-width: 40%;
-	width: 30%;
-	margin-top: 10px;
-	background-color: #c7e8be;
-	color: black;
-}
 
-.but1:hover, .but2:hover {
-	color: white;
-	background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .6))
-}
-
-.but2 {
-	max-width: 40%;
-	width: 30%;
-	margin-top: 10px;
-	background-color: yellow;
-}
 </style>
 
 <script type="text/javascript">
@@ -123,7 +107,7 @@
 	%>
 	<form action="" method="post" name="frm">
 		<div class="myContainer1">
-			<div class="myText" style="font-size: 70px;color: white;">Login</div>
+			<div class="myTextHeadings" style="font-size: 70px;color: white;">Login</div>
 			<br>
 			<div style="display: flex;" class="c">
 				<input type="checkbox" value="admin" id="chec" onclick="change()"
@@ -131,11 +115,11 @@
 					style="color: white; margin-left: 40px; font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 5px #13b3ff;"
 					id="check1">Employee</label>
 			</div>
-			<input type="text" class="input2" name="uname"><br> <input
-				type="password" class="input2" name="pass"><br>
+			<input type="text" class="text1" name="uname" placeholder="User Name"><br> <input
+				type="password" class="text1" name="pass" placeholder="password"><br>
 			<div class="myContainer2">
-				<input type="button" class="but1 input2" Value="Log In"
-					onclick="fun()"> <input type="reset" class="but2 input2">
+				<input type="button" class="btnGreen" Value="Log In"
+					onclick="fun()"> <input type="reset" class="btnGreen">
 			</div>
 		</div>
 	</form>

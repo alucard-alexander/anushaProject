@@ -75,8 +75,6 @@ function forg(){
 				<ul>
 					<li><a href="Login.jsp">Log in</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>		
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
 					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
 				</ul>
 			</nav>
@@ -101,12 +99,13 @@ function forg(){
 	%>
 	<form action="Login.do" method="post" name="frm">
 		<div class="myContainer1"> 
-			<div class="myText" style="justify-content: center;">Login</div>
+			<div class="myTextHeadings" style="justify-content: center;">Login</div>
 			<br> 
 			<input type="text" class="text1" name="uname" placeholder="User Name"><br>
+			<%System.out.println(request.getParameter("id"));%>
 			<input type="password" class="text1" name="pass" placeholder="password"><br>
 			<div class="myContainer2">
-				<input type="hidden" value=<%=request.getParameter("id")%> name="id">
+				<input type="hidden" value=<%=request.getParameter("id")%> name="iid">
 				<input type="submit" class="btnGreen" Value="Log In"> 
 				<input type="reset" class="btnGreen">
 			</div>

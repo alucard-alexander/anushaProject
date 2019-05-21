@@ -2,16 +2,21 @@
 
 .text1 {
 	border: 2px solid #aaa;
-	border-radius: 4px;
+	border-radius: 10px;
 	/*margin: 10px 20px 10px 30%;*/
 	outline: none;
 	padding: 8px;
 	width: 90%;
 	margin-bottom: 10px;
 	margin: 10px;
+	justify-content: center;
 }
 
-
+.text1::placeholder{
+	font-size:20px;
+	text-align: center;.
+	
+}
 
 .text1:hover{
 	border-color: dodgerBlue;

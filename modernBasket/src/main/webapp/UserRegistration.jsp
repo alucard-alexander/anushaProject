@@ -22,13 +22,11 @@
 }
 
 .cen1{
-	
 	justify-content: center;
 	display: grid;
 	width: 50%;
 	border: 2px solid #A8EB12;
 	border-radius: 10px;
-	
 }
 
 .space1{

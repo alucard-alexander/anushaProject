@@ -31,19 +31,26 @@ public class Login extends HttpServlet {
 		} else {
 			if (request.getParameter("pass").equals(strPass1[0])) {
 				session.setAttribute("id", Integer.parseInt(strPass1[1]));
+				session.setAttribute("type", "u");
 				session.setAttribute("msg", "Logged in successfully");
-				System.out.println(request.getParameter("id"));
-				if (request.getParameter("id") != null) {
-					
-					int iid = Integer.parseInt(request.getParameter("id"));
-					request.setAttribute("id", iid);
-					RequestDispatcher rd = request.getRequestDispatcher("Calculation.jsp");
+				//System.out.println(request.getParameter("iid"));
+				String iid1=request.getParameter("iid");
+				
+				if (iid1.contentEquals("null")) {
+					response.sendRedirect("UserHomePage.jsp");
+				}else {
+					//System.out.println(request.getParameter("iid"));
+					/*int iid = Integer.parseInt(request.getParameter("iid"));
+					System.out.println(iid);*/
+					request.setAttribute("id", iid1);
+					RequestDispatcher rd = request.getRequestDispatcher("Calculation.jsp?id="+iid1);
 					rd.forward(request, response);
 				}
-				response.sendRedirect("UserHomePage.jsp");
+				
 			} else {
 				session.setAttribute("msg", "Invalid Password");
-				response.sendRedirect("Login.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+				rd.forward(request, response);
 			}
 
 		}

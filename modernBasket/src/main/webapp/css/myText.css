@@ -1,6 +1,22 @@
 @charset "ISO-8859-1";
 
-.myText{
+.myTextHeadings{
 	text-shadow: 0px 0px 10px #00ff88;
 	font-size: 100px;
+}
+
+.myTextNormal{
+	font-size: 25px;
+}
+
+.myTextNormalSizebigger{
+	font-size: 60px;
+}
+
+.myTextNormalSizemedium{
+	font-size: 30px;
+}
+
+.myTextNormalSizesmaller{
+	font-size: 15px;
 }

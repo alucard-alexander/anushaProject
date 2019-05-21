@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/CheckBoxDesign.css">
 <link rel="stylesheet" href="css/Buttons.css">
 <link rel="stylesheet" href="css/RadioButton.css">
+<link rel="stylesheet" href="css/myText.css">
 </head>
 <body>
 
@@ -38,21 +39,19 @@
 	</header>
 	
 	<%
-		} else {
+		} else if(session.getAttribute("type").toString().contentEquals("u")){
 	%>
 	<header
-		style="background: linear-gradient(to right, #a1c4fd, #764ba2); height: auto;">
+		style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
 		<div class="container1">
 			<nav>
-				<h1 class="brand">
+				<h2 class="brand">
 					<a href="Index.jsp">Modern <span>B</span>asket
 					</a>
-				</h1>
-
-
+				</h2>
 				<ul>
-					<li><input></li>
-					<li><a href="UserOrderedList.jsp">Order List</a></li>
+					<li><a href="UserHomePage.jsp">Items List</a></li>
+					<li><a href="UserOrderedList.jsp">Ordered List</a></li>
 					<li><a href="UserDeliveredList.jsp">Delivered List</a></li>
 					<li><a href="Logout.do">Logout</a></li>
 				</ul>

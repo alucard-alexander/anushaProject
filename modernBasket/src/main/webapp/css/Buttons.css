@@ -1,5 +1,7 @@
 @charset "ISO-8859-1";
 
+/*Login Green*/
+
 .btnGreen{
 	background: none;
 	color: #ccc;
@@ -64,3 +66,151 @@
 }
 
 
+/*Login Green*/
+
+
+
+/*Item add green*/
+
+.btnItem{
+	background: none;
+	color: #ccc;
+	width: 180px;
+	height: 40px;
+	border: 1px solid #16ecda;
+	font-size: 18px;
+	border-radius: 4px;
+	transition: .6s;
+	overflow: hidden;
+	margin: 20px;	
+} 
+
+.btnItem:focus{
+	outline: none;
+}
+
+.btnItem:before{
+	content:'';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.5);
+	width: 60px;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: .5s;
+	filter: blur(30px);
+	transform: translateX(-130px) skew(-15deg);
+}
+
+.btnItem:after{
+	content: '';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.2);
+	width: 30px;
+	height: 100%;
+	left: 30px;
+	top: 0;
+	opacity: 0;
+	filter: blur(30px);
+	transform: translate(-100px) scaleX(-15deg);
+}
+
+.btnItem:hover {
+		background: #4eadb1b8;;
+		cursor: pointer;
+		color: black;
+}
+
+.btnItem:hover:before{
+	transform: translateX(300px) skewX(-15deg);
+	opacity: .6;
+	transition: .7s;
+}
+
+.btnItem:hover:after{
+	transform: translateX(300px) skew(-15deg);
+	opacity: 1;
+	transition: .7s;
+}
+
+
+
+
+
+
+
+/*Item add green*/
+
+
+/*orderlist button*/
+
+.btnOrder{
+	background: none;
+	color: #ccc;
+	width: 180px;
+	height: 40px;
+	border: 1px solid #6dff00;
+	font-size: 18px;
+	border-radius: 4px;
+	transition: .6s;
+	overflow: hidden;
+	margin: 20px;	
+	color: black;
+} 
+
+.btnOrder:focus{
+	outline: none;
+}
+
+.btnOrder:before{
+	content:'';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.5);
+	width: 60px;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: .5s;
+	filter: blur(30px);
+	transform: translateX(-130px) skew(-15deg);
+}
+
+.btnOrder:after{
+	content: '';
+	display: block;
+	position: absolute;
+	background: rgba(255,255,255,.2);
+	width: 30px;
+	height: 100%;
+	left: 30px;
+	top: 0;
+	opacity: 0;
+	filter: blur(30px);
+	transform: translate(-100px) scaleX(-15deg);
+}
+
+.btnOrder:hover {
+		background: #A8EB12;
+		cursor: pointer;
+		color: black;
+}
+
+.btnOrder:hover:before{
+	transform: translateX(300px) skewX(-15deg);
+	opacity: .6;
+	transition: .7s;
+}
+
+.btnOrder:hover:after{
+	transform: translateX(300px) skew(-15deg);
+	opacity: 1;
+	transition: .7s;
+}
+
+
+
+
+/*orderlist button*/

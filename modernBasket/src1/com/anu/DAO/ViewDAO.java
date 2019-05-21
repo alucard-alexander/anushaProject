@@ -273,6 +273,7 @@ public class ViewDAO {
 				gc.ps1.setInt(1, gc.rs1.getInt(3));
 				gc.rs2 = gc.ps1.executeQuery();
 				while (gc.rs2.next()) {
+					o1.setItem_id(gc.rs2.getInt(1));
 					o1.setItems_name(gc.rs2.getString(2));
 					o1.setPrice(gc.rs2.getFloat(3));
 				}

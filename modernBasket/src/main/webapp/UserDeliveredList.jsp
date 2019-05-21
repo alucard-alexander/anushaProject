@@ -7,9 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/HomeHeader.css">
-<link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
+<%@ include file="Headings.jsp"%>
 </head>
 
 <style type="text/css">
@@ -42,50 +40,39 @@
 	color: black;
 }
 
-.cen {
-	justify-content: center;
+
+.cen .cen1{
+	position: relative;
+	margin: 10%;
+	box-sizing: border-box;
 	display: flex;
+	height:auto;
+	width:auto;
+	max-height: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 20px;
+	width: 40%;
+	border: 2px solid #A8EB12;
+	border-radius: 10px;
 }
 
-table {
-	top: 30%;
-	width: 100%;
-	max-width: 90%;
-	position: absolute;
-	text-align: center;
-	border-collapse: collapse;
+.cen .cen1 .imgleft{
+	margin: 10px;
+	margin-right: 30px;
 }
 
-th:first-child {
-	border-left: transparent;
+.cen .cen1 .contenets1{
+	margin: 10px;
+	margin-left: 30px;
 }
 
-th:last-child {
-	border-right: transparent;
-}
 
-th {
-	background: linear-gradient(black, gray);
-	color: white;
-	border: 1px solid #080808;
-	border-top-color: transparent;
-	font-size: 15px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-td {
-	font-size: 20px;
-	border: 1px solid #080808;
-	padding: 10px;
-}
-
-th:first-child {
-	border-top-left-radius: 25px;
-}
-
-th:last-child {
-	border-top-right-radius: 25px;
+.cen1 .imgleft img{
+	position : relative;
+	max-height: 100%;
+	max-width: 100%;
+	height: 300px;
 }
 </style>
 
@@ -111,24 +98,7 @@ th:last-child {
 			response.sendRedirect("Login.jsp");
 		} else {
 	%>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
-		<div class="container1">
-			<nav>
-				<h2 class="brand">
-					<a href="Index.jsp">Modern <span>B</span>asket
-					</a>
-				</h2>
-				<ul>
-					<li><a href="UserHomePage.jsp">Items List</a></li>
-					<li><a href="UserOrderedList.jsp">Order List</a></li> 
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
-					<li><a href="Logout.do">Logout</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	
 	
 	<%
 		if (session.getAttribute("msg") != null) {
@@ -146,34 +116,49 @@ th:last-child {
 	%>
 	
 	<div class="cen">
-		<table>
-			<tr>
-				<th><h1>ITEM NAME</h1></th>
-				<th><h1>QUANTITY</h1></th>
-				<th><h1>PRICE</h1></th>
-				<th><h1>GST</h1></th>
-				<th><h1>TOTAL PRICE</h1></th>
-				<th><h1>STATUS</h1></th>
-			</tr>
+
 			<%
 				//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
 					for (Order_Items o1 : new ViewDAO()
 							.getDeliveredList(Integer.parseInt(session.getAttribute("id").toString()))) {
 			%>
-			<tr>
-				<td><%=o1.getItems_name().toUpperCase()%></td>
-				<td><%=o1.getQuantity()%></td>
-				<td><%=o1.getPrice()%></td>
-				<td>10%</td>
-				<td><%=o1.getTotal_price()%></td>
+			<div class="cen1">
 
-				<td><%=o1.getStatus()%></td>
+			<div class="imgleft">
+				<img src="itemsimages/<%=o1.getItem_id()%>.jpg">
+			</div>
+
+
+			<div class="contents1">
+
+				<div class="myTextNormal">
+					<b>ITEM NAME:</b>
+					<%=o1.getItems_name().toUpperCase()%>
+				</div>
+				<div class="myTextNormal">
+					<b>QUANTITY:</b><%=o1.getQuantity()%>
+				</div>
+				<div class="myTextNormal">
+					<b>PRICE:</b><%=o1.getPrice()%>
+				</div>
+				<div class="myTextNormal">
+					<b>GST:</b>2%
+				</div>
+				<div class="myTextNormal">
+					<b>TOTAL PRICE:</b><%=o1.getTotal_price()%>
+				</div>
+				<div class="myTextNormal">
+					<b>STATUS:</b><%=o1.getStatus()%>
+				</div>
+
+
 				
-			</tr>
+			</div>
+		</div>
 			<%
 				}
 			%>
-		</table>
+
 	</div>
 	<%
 		}

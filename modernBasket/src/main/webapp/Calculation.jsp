@@ -73,6 +73,10 @@ label {
 		if(session.getAttribute("id")==null){
 			response.sendRedirect("Login.jsp");
 		}else{
+			/*System.out.println("hERE");
+			System.out.println(request.getParameter("id"));
+			System.out.println(request.getParameter("iid"));*/
+			System.out.println(request.getParameter("id"));
 		int id=Integer.parseInt(request.getParameter("id"));
 		System.out.println(id);
 		

@@ -7,10 +7,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
-<link rel="stylesheet" href="css/InputBox.css">
-<link rel="stylesheet" href="css/itemsuser.css">
-
 <script type="text/javascript">
 function order(id,name){
 	
