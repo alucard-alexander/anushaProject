@@ -34,7 +34,7 @@
 
 
 				<ul>
-					<li><input></li>
+					
 					<li><a href="Login.jsp">Log In</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>
 					<li><a href="Index.jsp">Items List</a></li>

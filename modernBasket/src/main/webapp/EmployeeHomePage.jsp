@@ -16,13 +16,12 @@
 	margin: 10%;
 	box-sizing: border-box;
 	display: flex;
-	height: auto;
-	width: auto;
+	
 	max-height: 100%;
 	max-width: 100%;
 	overflow: hidden;
 	padding: 20px;
-	width: 40%;
+	width: 70%;
 	border: 2px solid #A8EB12;
 	border-radius: 10px;
 }

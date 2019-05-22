@@ -42,7 +42,7 @@
 </style>
 
 </head>
-<body style="background: linear-gradient(315deg, #764ba2, #a1c4fd);height: 100vh;overflow-y:hidden">
+<body style="background: linear-gradient(315deg, #764ba2, #a1c4fd);height: 100vh;">
 	<form action="userRegistration.do" method="post" class="">
 		<div style="font-size: 20px; justify-content: center; display: flex;position: absolute;top: 25px;left: 40%">
 					<h1>Address</h1>

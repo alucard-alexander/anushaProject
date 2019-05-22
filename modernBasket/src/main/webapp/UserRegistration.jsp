@@ -38,7 +38,7 @@
 
 
 </head>
-<body style="background: linear-gradient(45deg, #764ba2, #a1c4fd);height: 100vh;overflow-y:hidden">
+<body style="background: linear-gradient(45deg, #764ba2, #a1c4fd);height: 100vh;">
 	<form action="address.jsp" method="post">
 		<div
 			style="font-size: 20px; justify-content: center; display: flex; top: 20px; position: absolute; left: 40%;">

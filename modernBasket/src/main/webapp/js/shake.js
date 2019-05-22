@@ -4,11 +4,22 @@ var p1 = /^[0-9]{6}$/;
 
 function showEmptyError(inputname, msg) {
 	var element = $(inputname).addClass('shaker');
-	$('h3').html(msg);
+	$('h2').html(msg);
 	setTimeout(function() {
 		element.removeClass('shaker');
 	}, 1000);
 }
+
+$(document).on('click', '#clickhere', function() {
+	if ($('#uname').val() == "") {
+		showEmptyError('#uname', 'Item Name is empty');
+	} else if ($('#pass').val() == "") {
+		showEmptyError('#pass', 'Item price is empty');
+	} else {
+		return true;
+	}
+	return false;
+})
 
 $(document).on('click', '#clickhere5', function() {
 	if ($('#iname').val() == "") {

@@ -145,7 +145,7 @@ label {
 						<label><b>Total Cost:</b></label><label id="tpr"></label>
 					</div>
 					<div>
-						<input type="submit" value="Order" id="sub">
+						<input type="submit" value="Order" class="btnGreen" id="sub">
 					</div>
 					
 				</div>

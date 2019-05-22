@@ -55,14 +55,13 @@ function order(id,name){
 				<img src="itemsimages/<%=i.getId()%>.jpg">
 			</div>
 			<div class="details">
-				<h4>
-					
-					<%=i.getItemName()%><br>
-					<%=i.getPrice()%><br>
+				<h4 class="myTextNormal" style="justify-content: center;display: grid;">
+				Name: <%=i.getItemName()%><br>
+				Price: <%=i.getPrice()%><br>
 				</h4>
-				<form name="frm<%=i.getId()%>" method="post">
+				<form name="frm<%=i.getId()%>" method="post" style="justify-content: center;display: grid;">
 					<input type="hidden" value=<%=i.getId()%> name="id"> 
-					<input type="button" value="input" onclick="order(<%=i.getId()%>,'<%=i.getItemName()%>')">
+					<input type="button" value="order" class="btnItem" onclick="order(<%=i.getId()%>,'<%=i.getItemName()%>')">
 				</form>
 			</div>
 		</div>

@@ -181,7 +181,7 @@ th:last-child {
 <body>
 	<form action="AdminAddressAdd.jsp" method="post">
 		<div
-			style="font-size: 20px; justify-content: center; display: flex; top: 20%; position: absolute; left: 40%;">
+			style="font-size: 20px; justify-content: center; display: flex; top: 10%; position: absolute; left: 40%;">
 			<h1>Employee Sign up</h1>
 		</div>
 		<div class="cen">
