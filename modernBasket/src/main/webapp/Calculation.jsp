@@ -55,14 +55,13 @@ label {
 
 <script type="text/javascript">
 	function cal() {
-		var d=parseFloat(document.getElementById('pri').textContent);
-		var e=parseInt(document.getElementById('quantity').value);
-		var f=d*e;
-		f=(0.02*f)+f;
-		document.getElementById('tpr').innerText= f;
+		var d = parseFloat(document.getElementById('pri').textContent);
+		var e = parseInt(document.getElementById('quantity').value);
+		var f = d * e;
+		f = (0.02 * f) + f;
+		document.getElementById('tpr').innerText = f;
 		document.getElementById('sub').focus;
-		
-		
+
 	}
 </script>
 
@@ -70,20 +69,18 @@ label {
 <body>
 
 	<%
-		if(session.getAttribute("id")==null){
+		if (session.getAttribute("id") == null) {
 			response.sendRedirect("Login.jsp");
-		}else{
+		} else {
 			/*System.out.println("hERE");
 			System.out.println(request.getParameter("id"));
 			System.out.println(request.getParameter("iid"));*/
 			System.out.println(request.getParameter("id"));
-		int id=Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		
+			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
 	%>
-	
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
+
+	<header style="background: linear-gradient(225deg, #764ba2, #a1c4fd);">
 		<div class="container1">
 			<nav>
 				<h1 class="brand">
@@ -101,12 +98,13 @@ label {
 	</header>
 	<%
 		if (session.getAttribute("msg") != null) {
-		String msg = session.getAttribute("msg").toString();
-		session.removeAttribute("msg");
-		//String msg = "Logged in properly";
+				String msg = session.getAttribute("msg").toString();
+				session.removeAttribute("msg");
+				//String msg = "Logged in properly";
 	%>
 	<div class="cen111">
-		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+		<div
+			style="color: green; top: 20%; position: absolute; font-size: 25px;">
 			<h3><%=msg%></h3>
 		</div>
 	</div>
@@ -115,13 +113,13 @@ label {
 	%>
 	<%
 		String[] itemName = new ViewDAO().getitemName_Price(id);
-	
 	%>
 	<form name="frm" action="Order.do" method="post">
-	<%//request.setAttribute("id", Integer.toString(id)); 
-		//request.setAttribute("id", "4");
-		session.setAttribute("item_id", id);
-	%>
+		<%
+			//request.setAttribute("id", Integer.toString(id)); 
+				//request.setAttribute("id", "4");
+				session.setAttribute("item_id", id);
+		%>
 		<div class="cen">
 			<div class="con">
 				<div class="img1">
@@ -135,8 +133,9 @@ label {
 						<label><b>Item Price: </b></label> <label id="pri"><%=itemName[1]%></label>
 					</div>
 					<div>
-						<label><b>Quantity:</b></label><input type="number" 
-							name="quantity" id="quantity" onblur="cal()" class="text1" required>
+						<label><b>Quantity:</b></label><input type="number"
+							name="quantity" id="quantity" onblur="cal()" class="text1"
+							required style="width: 100px;"><b>Kg</b>
 					</div>
 					<div>
 						<label style="margin-right: 30px;"><b>GST:</b></label><label>2%</label>
@@ -147,11 +146,12 @@ label {
 					<div>
 						<input type="submit" value="Order" class="btnGreen" id="sub">
 					</div>
-					
 				</div>
 			</div>
 		</div>
 	</form>
-	<%}%>
+	<%
+		}
+	%>
 </body>
 </html>

@@ -32,6 +32,23 @@ $(document).on('click', '#clickhere5', function() {
 	return false;
 })
 
+
+$(document).on('click', '#passResetClick', function() {
+	if ($('#uname').val() == "") {
+		showEmptyError('#uname', 'User Name is empty');
+	} else if ($('#qans').val() == "") {
+		showEmptyError('#qans', 'Answer is empty');
+	} else if ($('#pass').val() == "") {
+		showEmptyError('#pass', 'Answer is empty');
+	} else if ($('#repass').val() == "") {
+		showEmptyError('#repass', 'Answer is empty');
+	} else {
+		return true;
+	}
+	return false;
+})
+
+
 $(document).on('click', '#clickhere1', function() {
 
 	if ($('#fname').val() == "") {
@@ -127,6 +144,8 @@ $(document).on('click', '#clickhere3', function() {
 	}
 	return false;
 })
+
+
 
 
 

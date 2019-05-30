@@ -5,9 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/HomeHeader.css">
-<link rel="stylesheet" href="css/InputBox.css">
-
+<link rel="stylesheet" href="css/shake.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
+<%@ include file="Headings.jsp"%>
 <style type="text/css">
 .myContainer1 {
 	max-width: 100%;
@@ -57,25 +58,7 @@ function forg(){
 
 </head>
 <body>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2)), url('systemImages/login.jpg') center no-repeat; background-size: cover">
-		<div class="container">
-			<nav>
-				<h1 class="brand">
-					<a href="Index.jsp">Modern <span>B</span>asket
-					</a>
-				</h1>
-				<ul>
-					<li><a href="Login.jsp">Log in</a></li>
-					<li><a href="UserRegistration.jsp">Register</a></li>
-					<li><a href="UserHomePage.jsp">Items List</a></li>
-					<li><a href="">About Us</a></li>
-					<li><a href="">Contact Us</a></li>
-					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
-				</ul>
-			</nav>
-		</div> 
-	</header>
+	
 	
 	<%
 		if (session.getAttribute("msg") != null) {
@@ -93,14 +76,14 @@ function forg(){
 	%>
 	<form action="PassReset.do" method="post" name="frm">
 		<div class="myContainer1">
-			<div class="myText">Login</div>
-			<br> <input type="text" class="input2" name="uname" placeholder="User Name"><br>
-			<input type="text" class="input2" name="ques" placeholder="Enter the Name of your Best teacher?"><br>
-			<input type="password" placeholder="Enter the Password" name="pass">
-			<input type="password" placeholder="Re-enter the Password" name="repass">
+			<div class="myTextHeadings" style="justify-content: center;">Password reset</div>
+			<br> <input type="text" class="text1" name="uname" placeholder="User Name" id="uname"><br>
+			<input type="text" class="text1" name="ques" placeholder="Enter the Name of your Best teacher?" id=""><br>
+			<input type="password" class="text1" placeholder="Enter the Password" name="pass" id="pass">
+			<input type="password" class="text1" placeholder="Re-enter the Password" name="repass" id="repass">
 			<div class="myContainer2">
-				<input type="submit" class="but" Value="Reset Password"> 
-				<input type="reset" class="but" value="Reset Form">
+				<input type="submit" class="btnGreen" Value="Reset Password" id="passResetClick"> 
+				<input type="reset" class="btnGreen" value="Reset Form">
 
 			</div>
 			<div class="myContainer2">

@@ -13,17 +13,17 @@
 <style type="text/css">
 .cen .cen1 {
 	position: relative;
-	margin: 10%;
 	box-sizing: border-box;
 	display: flex;
-	
 	max-height: 100%;
 	max-width: 100%;
 	overflow: hidden;
-	padding: 20px;
 	width: 70%;
 	border: 2px solid #A8EB12;
 	border-radius: 10px;
+	padding: 20px;
+	margin: 10%;
+	position: relative;
 }
 
 .cen .cen1 .imgleft {
@@ -59,11 +59,7 @@
 		document.forms[formname].submit();
 	}
 	
-	function delivery(id){
-		formname='frm'+id; 
-		document.forms[formname].action='EmployeeUpdateStatus.do?status=Delivered';
-		document.forms[formname].submit();
-	}
+
 </script>
 
 
@@ -85,11 +81,15 @@
 		</div>
 	</div>
 	<%
+		} else {
+	%>
+
+	<div class="myTextHeadings"
+		style="justify-content: center; left: 30%; font-size: 50px; top: 20%;; position: absolute;">Pending
+		List</div>
+	<%
 		}
 	%>
-	
-	<div class="myTextHeadings" style="justify-content: center; left: 30%; font-size: 50px;top:20%;;position: absolute;">Pending List</div>
-	
 	<div class="cen">
 		<%
 			//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
@@ -129,7 +129,7 @@
 				<form name="frm<%=o1.getOrder_id()%>" method="post">
 					<input type="hidden" value=<%=o1.getOrder_id()%> name="oid">
 					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
-					<input type="button" class="btnOrder" value="Details"
+					<input type="button" class="btnOrder" value="Customer Details"
 						onclick="details(<%=o1.getOrder_id()%>)"> <input
 						type="button" class="btnOrder" value="Process.."
 						onclick="process(<%=o1.getOrder_id()%>)">

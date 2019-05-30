@@ -1,3 +1,4 @@
+<%@page import="com.anu.DAO.Email"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -17,13 +18,38 @@
 <script type="text/javascript" src="js/shake.js"></script>
 
 
+<style type="text/css">
+ul li ul li {
+	display: none;
+}
+
+ul li: hover ul {
+	float: left;
+	display: grid;
+}
+
+ul li:hover ul li {
+	display: table-row-group;
+	align-content: center;
+	text-align: center;
+	font-size: 5px;
+	margin: 5px;
+	padding: 5px;
+	float: left;
+}
+
+ul li ul {
+	display: grid;
+}
+</style>
+
 </head>
 <body>
 
 	<%
 		if (session.getAttribute("id") == null) {
 	%>
-		<header
+	<header
 		style="background: linear-gradient(to right, #a1c4fd, #764ba2); height: auto;">
 		<div class="container1">
 			<nav>
@@ -34,20 +60,21 @@
 
 
 				<ul>
-					
+
 					<li><a href="Login.jsp">Log In</a></li>
 					<li><a href="UserRegistration.jsp">Register</a></li>
 					<li><a href="Index.jsp">Items List</a></li>
+					<li><a href="AdministratorLogin.jsp">Adminstration</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
-	
+
 	<%
-		} else if(session.getAttribute("type").toString().contentEquals("u")){
+		} else if (session.getAttribute("type").toString().contentEquals("u")) {
 	%>
 	<header
-		style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
+		style="background: linear-gradient(225deg, #764ba2, #a1c4fd); height: auto;">
 		<div class="container1">
 			<nav>
 				<h2 class="brand">
@@ -63,12 +90,12 @@
 			</nav>
 		</div>
 	</header>
-	
+
 	<%
-		}else if(session.getAttribute("type").toString().contentEquals("e")){
+		} else if (session.getAttribute("type").toString().contentEquals("e")) {
 	%>
-		<header
-		style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
+	<header
+		style="background: linear-gradient(225deg, #764ba2, #a1c4fd); height: auto;">
 		<div class="container1">
 			<nav>
 				<h2 class="brand">
@@ -76,7 +103,7 @@
 					</a>
 				</h2>
 				<ul>
-					
+
 					<li><a href="EmployeeHomePage.jsp">Pending List</a></li>
 					<li><a href="EmployeeProcessingList.jsp">Processing List</a></li>
 					<li><a href="Logout.do">Logout</a></li>
@@ -85,31 +112,45 @@
 		</div>
 	</header>
 	<%
-		}else if(session.getAttribute("type").toString().contentEquals("a")){
-			%>
-			<header
-			style="background: linear-gradient(225deg, #764ba2,#a1c4fd);height: auto;">
-			<div class="container1">
-				<nav>
-					<h2 class="brand">
-						<a href="Index.jsp">Modern <span>B</span>asket
-						</a>
-					</h2>
-					<ul>
-						
-						<li><a href="EmployeeHomePage.jsp">Pending List</a></li>
-						<li><a href="EmployeeProcessingList.jsp">Processing List</a></li>
-						<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
-						<li><a href="AdminAddItem.jsp">Add item</a></li>
-						<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
-						<li><a href="Logout.do">Logout</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		<%
-			}
-		%>
+		} else if (session.getAttribute("type").toString().contentEquals("a")) {
+	%>
+	<header
+		style="background: linear-gradient(225deg, #764ba2, #a1c4fd); height: auto;">
+		<div class="container1">
+			<nav>
+				<h2 class="brand">
+					<a href="Index.jsp">Modern <span>B</span>asket
+					</a>
+				</h2>
+				<ul>
+
+
+					<li><a href="EmployeeHomePage.jsp">Pending List</a></li>
+					<li><a href="EmployeeProcessingList.jsp">Processing List</a></li>
+					<li><a href="AdminDeliveredList.jsp">Delivered List </a></li>
+
+					<li><a href="AdminAddItem.jsp">Add item</a></li>
+
+
+					<li><a>Employee</a>
+						<div style="background: transparent; height: auto; color: white;">
+							<ul>
+								<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
+								<li><a href="EmployeeDetails.jsp">Employee Details</a></li>
+							</ul>
+						</div></li>
+
+
+
+
+					<li><a href="Logout.do">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<%
+		}
+	%>
 
 
 </body>

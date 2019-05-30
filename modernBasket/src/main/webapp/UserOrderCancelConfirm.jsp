@@ -1,6 +1,6 @@
 <%@page import="com.anu.DAO.ViewDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/HomeHeader.css">
 <link rel="stylesheet" href="css/InputBox.css">
 <link rel="stylesheet" href="css/itemsuser.css">
-
+<link rel="stylesheet" href="css/Buttons.css">
 
 <style type="text/css">
 .cen {
@@ -55,14 +55,12 @@ label {
 <body>
 
 	<%
-		if(session.getAttribute("id")==null){
+		if (session.getAttribute("id") == null) {
 			response.sendRedirect("Login.jsp");
-		}else{
-		int id=Integer.parseInt(request.getParameter("iid"));
-		
+		} else {
+			int id = Integer.parseInt(request.getParameter("iid"));
 	%>
-	<header
-		style="background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .2));">
+	<header style="background: linear-gradient(225deg, #764ba2, #a1c4fd);">
 		<div class="container1">
 			<nav>
 				<h1 class="brand">
@@ -78,37 +76,46 @@ label {
 			</nav>
 		</div>
 	</header>
-	
+
 	<%
 		if (session.getAttribute("msg") != null) {
-		String msg = session.getAttribute("msg").toString();
-		session.removeAttribute("msg");
-		//String msg = "Logged in properly";
+				String msg = session.getAttribute("msg").toString();
+				session.removeAttribute("msg");
+				//String msg = "Logged in properly";
 	%>
 	<div class="cen111">
-		<div style="color: green; top: 20%; position: absolute;font-size: 25px;">
+		<div
+			style="color: green; top: 20%; position: absolute; font-size: 25px;">
 			<h3><%=msg%></h3>
 		</div>
 	</div>
 	<%
-		}
+		} else {
 	%>
-	
+	<div class="cen111">
+		<div
+			style="color: green; top: 20%; position: absolute; font-size: 25px;">
+			<h3>Ordered List</h3>
+		</div>
+	</div>
 	<%
+		}
+	
 		String[] itemName = new ViewDAO().getitemName_Price(id);
-		Integer[] i=new ViewDAO().get_quantity_TotalPrice(Integer.parseInt(request.getParameter("oid")));
+			Integer[] i = new ViewDAO().get_quantity_TotalPrice(Integer.parseInt(request.getParameter("oid")));
 	%>
 	<form action="OrderCancel.do" method="post" name="frm">
-	<%//request.setAttribute("id", Integer.toString(id)); 
-		//request.setAttribute("id", "4");
-	%>
+		<%
+			//request.setAttribute("id", Integer.toString(id)); 
+				//request.setAttribute("id", "4");
+		%>
 		<div class="cen">
 			<div class="con">
 				<div class="img1">
 					<img src="itemsimages/<%=id%>.jpg">
 				</div>
 				<div class="details">
-			
+
 					<div>
 						<label><b>Item Name: </b></label> <label><%=itemName[0].substring(0, 1).toUpperCase() + itemName[0].substring(1)%></label>
 					</div>
@@ -122,16 +129,19 @@ label {
 						<label style="margin-right: 30px;"><b>GST:</b></label><label>10%</label>
 					</div>
 					<div>
-						<label><b>Total Cost:</b></label><label id="tpr"><%=i[1] %></label>
+						<label><b>Total Cost:</b></label><label id="tpr"><%=i[1]%></label>
 					</div>
 					<div>
-						<input type="hidden" value=<%=request.getParameter("oid")%> name="oid">
-						<input type="submit" value="Confirm cancel" id="sub">
+						<input type="hidden" value=<%=request.getParameter("oid")%>
+							name="oid"> <input type="submit" value="Confirm cancel"
+							id="sub" class="btnGreen">
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-	<%}%>
+	<%
+		}
+	%>
 </body>
 </html>

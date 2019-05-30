@@ -18,12 +18,14 @@ public class PassReset extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
-		System.out.println();
-		System.out.println(request.getParameter("pass"));
-		System.out.println();
+		
+		
+		
 		int pid = new ViewDAO().getUserPid(request.getParameter("uname"));
 		String qans=new ViewDAO().getqans(pid);
+		
 		if (qans.equals(request.getParameter("ques"))) {
+			System.out.println(request.getParameter("pass"));
 			try {
 				if (new Update().updatePass(pid, request.getParameter("pass"))) {
 					session.setAttribute("msg", "Password changed");
@@ -42,6 +44,7 @@ public class PassReset extends HttpServlet {
 		}else {
 			
 			session.setAttribute("msg", "Question answer does not match");
+			response.sendRedirect("Login.jsp");
 		}
 	}
 

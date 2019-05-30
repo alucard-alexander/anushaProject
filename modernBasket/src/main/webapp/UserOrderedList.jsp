@@ -43,9 +43,6 @@
 	color: black;
 }
 
-
-
-
 .cen .cen1{
 	position: relative;
 	margin: 10%;
@@ -115,6 +112,16 @@
 		<div
 			style="color: green; top: 20%; position: absolute; font-size: 25px;">
 			<h3><%=msg%></h3>
+		</div>
+	</div>
+	<%
+		}
+	else {
+	%>
+	<div class="cen111">
+		<div
+			style="color: green; top: 20%; position: absolute; font-size: 25px;">
+			<h3>Ordered List</h3>
 		</div>
 	</div>
 	<%

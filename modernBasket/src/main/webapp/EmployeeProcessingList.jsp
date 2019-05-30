@@ -1,7 +1,7 @@
 <%@page import="com.anu.DAO.ViewDAO"%>
 <%@page import="com.anu.bean.Order_Items"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,6 @@
 	margin: 10%;
 	box-sizing: border-box;
 	display: flex;
-	
 	max-height: 100%;
 	max-width: 100%;
 	overflow: hidden;
@@ -85,11 +84,15 @@
 		</div>
 	</div>
 	<%
+		} else {
+	%>
+
+	<div class="myTextHeadings"
+		style="justify-content: center; left: 30%; font-size: 50px; top: 20%;; position: absolute;">
+		Processing List</div>
+	<%
 		}
 	%>
-	
-	<div class="myTextHeadings" style="justify-content: center; left: 30%; font-size: 50px;top:20%;;position: absolute;">Processing List</div>
-	
 	<div class="cen">
 		<%
 			//for (Order_Items o1 : new ViewDAO().getorderedList(2)) {
@@ -131,8 +134,8 @@
 					<input type="hidden" value=<%=o1.getItem_id()%> name="iid">
 					<input type="button" class="btnOrder" value="Details"
 						onclick="details(<%=o1.getOrder_id()%>)"> <input
-						type="button" class="btnOrder" value="Process.."
-						onclick="process(<%=o1.getOrder_id()%>)">
+						type="button" class="btnOrder" value="Delivered"
+						onclick="delivery(<%=o1.getOrder_id()%>)">
 				</form>
 			</div>
 		</div>

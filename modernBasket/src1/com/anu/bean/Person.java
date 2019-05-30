@@ -3,9 +3,17 @@ package com.anu.bean;
 public class Person {
 	String fname,mname,lname,dob,gender,userName,password,email;
 	String ph_no;
-	int addressId;
+	int addressId,id;
 	public int getAddressId() {
 		return addressId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setAddressId(int addressId) {

@@ -32,6 +32,24 @@ public class ViewDAO {
 
 		return 0;
 	}
+	
+	public String getemail(int pid) {
+		String sql = "select email from person where id=?";
+		GetConnection gc = new GetConnection();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			gc.ps.setInt(1, pid);
+			gc.rs1 = gc.ps.executeQuery();
+			while(gc.rs1.next()) {
+				return gc.rs1.getString(1);
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
 
 	
 	
@@ -80,6 +98,38 @@ public class ViewDAO {
 		}
 		return null;
 	}
+	
+	public List<Person> getAllEmployee() {
+		String sql = "select * from person where type='e'";
+		GetConnection gc = new GetConnection();
+		try {
+			gc.ps = gc.getMysqlConnection().prepareStatement(sql);
+			//gc.ps.setInt(1, id);
+			gc.rs1 = gc.ps.executeQuery();
+			List<Person> person = new ArrayList<Person>();
+			
+			while (gc.rs1.next()) {
+				Person p1 = new Person();
+				p1.setId(gc.rs1.getInt(1));
+				p1.setAddressId(gc.rs1.getInt(2));
+				p1.setFname(gc.rs1.getString(3));
+				p1.setMname(gc.rs1.getString(4));
+				p1.setLname(gc.rs1.getString(5));
+				p1.setDob(gc.rs1.getString(6));
+				p1.setGender(gc.rs1.getString(7));
+				p1.setUserName(gc.rs1.getString(8));
+				p1.setPh_no(gc.rs1.getString(10));
+				p1.setEmail(gc.rs1.getString(11));
+				person.add(p1);
+			}
+			return person;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 
 	public Person getPerson(int id) {
 		String sql = "select * from person where id=?";
@@ -97,6 +147,7 @@ public class ViewDAO {
 				p1.setDob(gc.rs1.getString(6));
 				p1.setGender(gc.rs1.getString(7));
 				p1.setPh_no(gc.rs1.getString(10));
+				p1.setEmail(gc.rs1.getString(11));
 				return p1;
 			}
 
@@ -205,6 +256,7 @@ public class ViewDAO {
 	}
 	
 	public List<Order_Items> getDeliveredList(int id) {
+		
 		String sql = "select * from order1 where pid=? and status = ?";
 		String sql1;
 		GetConnection gc = new GetConnection();

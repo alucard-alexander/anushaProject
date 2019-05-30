@@ -53,7 +53,7 @@ function order(id,name){
 		<%
 			}
 			} catch (Exception e) {
-
+					response.sendRedirect("Index.jsp");
 			}
 		%>
 	</div>

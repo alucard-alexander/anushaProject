@@ -100,6 +100,18 @@
   	<description></description>
   	<servlet-class>com.anu.controller.userBeforeLoginItem</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmployeeDelete</servlet-name>
+  	<display-name>EmployeeDelete</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.EmployeeDelete</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EmployeePassReset</servlet-name>
+  	<display-name>EmployeePassReset</display-name>
+  	<description></description>
+  	<servlet-class>com.anu.controller.EmployeePassReset</servlet-class>
+  </servlet>
   
   
   
@@ -162,6 +174,14 @@
   <servlet-mapping>
   	<servlet-name>userBeforeLoginItem</servlet-name>
   	<url-pattern>/userBeforeLoginItem.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmployeeDelete</servlet-name>
+  	<url-pattern>/EmployeeDelete.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmployeePassReset</servlet-name>
+  	<url-pattern>/EmployeePassReset.do</url-pattern>
   </servlet-mapping>
   
 </web-app>
