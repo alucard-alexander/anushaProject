@@ -51,7 +51,7 @@ public class Email {
 			msg.setSubject(subject);
 			msg.setSentDate(new Date());
 			msg.setText(messageText);
-			
+			//hi
 			Transport transport = mailSession.getTransport("smtp");
 			transport.connect(host,user,pass);
 			transport.sendMessage(msg, msg.getAllRecipients());
