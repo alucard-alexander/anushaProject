@@ -138,9 +138,9 @@ ul li ul {
 								<li><a href="AdminEmployeeAdd.jsp">Add an employee</a></li>
 								<li><a href="EmployeeDetails.jsp">Employee Details</a></li>
 							</ul>
-						</div></li>
+						</div></li> 
 
-
+x
 
 
 					<li><a href="Logout.do">Logout</a></li>
